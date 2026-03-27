@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSc SE Grade Tracker - Makerere University</title>
+    <title>BSc SE Grade Tracker - Mbarara University</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -11,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
     <script src="app.js" defer></script>
 </head>
+
 <body>
     <div id="onboarding-overlay" class="overlay hidden"></div>
     <div id="pin-overlay" class="overlay hidden"></div>
@@ -19,7 +21,7 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-head">
                 <h1>SE Grade Tracker</h1>
-                <p>Makerere BSSE</p>
+                <p>Mbarara University · Mubiru Elton Felix</p>
             </div>
 
             <nav id="sidebar-nav" class="sidebar-nav" aria-label="Main navigation">
@@ -71,13 +73,24 @@
     </div>
 
     <nav id="mobile-tabs" class="mobile-tabs" aria-label="Mobile tabs">
-        <button data-page="dashboard" class="mobile-tab active" type="button"><span>D</span></button>
-        <button data-page="grades" class="mobile-tab" type="button"><span>G</span></button>
-        <button data-page="forecast" class="mobile-tab" type="button"><span>F</span></button>
-        <button data-page="timetable" class="mobile-tab" type="button"><span>T</span></button>
-        <button data-page="insights" class="mobile-tab" type="button"><span>I</span></button>
+        <button data-page="dashboard" class="mobile-tab active" type="button" aria-label="Dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v10h-6v-6H9v6H3z"></path></svg>
+        </button>
+        <button data-page="grades" class="mobile-tab" type="button" aria-label="My Grades">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v3H5zm0 6h14v3H5zm0 6h14v3H5z"></path></svg>
+        </button>
+        <button data-page="forecast" class="mobile-tab" type="button" aria-label="Forecast">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 7-8 1.5 1.3L13 18l-4-4-4.5 4.5z"></path></svg>
+        </button>
+        <button data-page="timetable" class="mobile-tab" type="button" aria-label="Timetable">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v2H5a2 2 0 0 0-2 2v13a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2zM5 10h14v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"></path></svg>
+        </button>
+        <button data-page="insights" class="mobile-tab" type="button" aria-label="Insights">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10h3v10zm6 0V4h3v16zm6 0v-7h3v7z"></path></svg>
+        </button>
     </nav>
 
     <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
 </body>
+
 </html>
