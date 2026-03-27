@@ -789,6 +789,7 @@ let chart;
         const resetButton = document.getElementById("reset-btn");
         const exportButton = document.getElementById("export-btn");
         const importInput = document.getElementById("import-input");
+        const importBseButton = document.getElementById("import-bse-btn");
 
         if (resetButton) {
             resetButton.addEventListener("click", async() => {
@@ -823,20 +824,44 @@ let chart;
                         return;
                     }
 
-                    state.semesters = parsed.semesters;
-                    state.forecast = parsed.forecast;
-                    state.settings = {
-                        ...state.settings,
-                        ...(parsed.settings || {})
-                    };
-                    saveState();
-                    renderAll();
+                    applyImportedState(parsed);
                     showToast("Data imported successfully.", "success");
                 } catch (_error) {
                     showToast("Failed to import JSON.", "error");
                 }
 
                 importInput.value = "";
+            });
+        }
+
+        if (importBseButton) {
+            importBseButton.addEventListener("click", async() => {
+                if (state.semesters.length > 0 || state.forecast.length > 0) {
+                    const proceed = await confirmDialog(
+                        "Loading the BSE sample will replace your current data. Continue?",
+                        "Load BSE Sample"
+                    );
+                    if (!proceed) {
+                        return;
+                    }
+                }
+
+                try {
+                    const response = await fetch("./import_this_file.json", { cache: "no-store" });
+                    if (!response.ok) {
+                        throw new Error("sample-fetch-failed");
+                    }
+                    const parsed = await response.json();
+                    if (!isValidStateShape(parsed)) {
+                        showToast("BSE sample JSON format is invalid.", "error");
+                        return;
+                    }
+
+                    applyImportedState(parsed);
+                    showToast("BSE sample data loaded.", "success");
+                } catch (_error) {
+                    showToast("Failed to load BSE sample JSON.", "error");
+                }
             });
         }
     }
@@ -968,6 +993,17 @@ let chart;
         link.click();
         link.remove();
         URL.revokeObjectURL(url);
+    }
+
+    function applyImportedState(parsed) {
+        state.semesters = parsed.semesters;
+        state.forecast = parsed.forecast;
+        state.settings = {
+            ...state.settings,
+            ...(parsed.settings || {})
+        };
+        saveState();
+        renderAll();
     }
 
     function confirmDialog(message, title = "Confirm Action") {
