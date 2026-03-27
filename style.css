@@ -92,6 +92,17 @@ select {
     margin: 0 auto;
 }
 
+.app-footer {
+    max-width: var(--max-width);
+    margin: 0.85rem auto 0;
+    text-align: center;
+}
+
+.app-footer__text {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+}
+
 .app-header {
     display: flex;
     justify-content: space-between;
@@ -715,6 +726,9 @@ body.modal-open {
     }
     .app-main {
         padding: 0.9rem;
+    }
+    .app-footer {
+        margin-top: 0.65rem;
     }
     .forecast-grid,
     .form-grid {

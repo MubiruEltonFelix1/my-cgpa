@@ -16,11 +16,12 @@ I built this project as a practical dashboard-style tool for semester planning. 
 8. [How to Use the App](#how-to-use-the-app)
 9. [Data Persistence and Backup](#data-persistence-and-backup)
 10. [Import/Export JSON Format](#importexport-json-format)
-11. [Validation Rules](#validation-rules)
-12. [Accessibility and UX Notes](#accessibility-and-ux-notes)
-13. [Troubleshooting](#troubleshooting)
-14. [Future Improvements](#future-improvements)
-15. [License](#license)
+11. [Quick Start for BSE Classmates](#quick-start-for-bse-classmates)
+12. [Validation Rules](#validation-rules)
+13. [Accessibility and UX Notes](#accessibility-and-ux-notes)
+14. [Troubleshooting](#troubleshooting)
+15. [Future Improvements](#future-improvements)
+16. [License](#license)
 
 ## Project Overview
 
@@ -73,6 +74,7 @@ The app uses a tabbed academic dashboard:
 - Reset all data (with confirmation modal).
 - Export state as JSON.
 - Import valid JSON state.
+- Load prefilled same-year sample using **Load BSE Sample** (from `import_this_file.json`).
 - Toast notifications for success/error/info events.
 
 ### 5. Modal-Based UX
@@ -208,6 +210,26 @@ No extra configuration is needed because all dependencies are loaded from CDNs a
 2. Check highest/lowest semester and best/worst course cards.
 3. Inspect the “dragging” list (courses below C).
 4. Use minimum-grade calculator for required future average.
+
+## Quick Start for BSE Classmates
+
+This app includes a one-click starter dataset for Software Engineering students in the same year as the author.
+
+1. Open the deployed app on GitHub Pages.
+2. Click **Load BSE Sample** in the top action bar.
+3. Confirm overwrite if you already have data.
+4. Start editing grades/units immediately to simulate your own outcomes.
+
+### What this button does
+
+- Automatically fetches `import_this_file.json` from the project root.
+- Validates the JSON before loading.
+- Replaces current app data only after confirmation.
+
+### Requirement
+
+- This is designed for GitHub Pages or any HTTP server.
+- If you open the app using `file:///...`, browser fetch rules may block this automatic import.
 
 ## Data Persistence and Backup
 
