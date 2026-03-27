@@ -1,340 +1,113 @@
-# CGPA Calculator & Forecaster
-
-A professional, no-build, vanilla JavaScript web app for university students to track CGPA, forecast future performance, and get actionable academic insights.
+# SE Grade Tracker: Academic Intelligence for Strategic Planning
 
-I built this project as a practical dashboard-style tool for semester planning. It runs directly in the browser, stores data locally, and can be deployed easily on GitHub Pages.
-
-## Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Key Features](#key-features)
-3. [Tech Stack](#tech-stack)
-4. [Project Structure](#project-structure)
-5. [Grade Scale and Formulas](#grade-scale-and-formulas)
-6. [How to Run Locally](#how-to-run-locally)
-7. [Deploy to GitHub Pages](#deploy-to-github-pages)
-8. [How to Use the App](#how-to-use-the-app)
-9. [Data Persistence and Backup](#data-persistence-and-backup)
-10. [Import/Export JSON Format](#importexport-json-format)
-11. [Quick Start for BSE Classmates](#quick-start-for-bse-classmates)
-12. [Validation Rules](#validation-rules)
-13. [Accessibility and UX Notes](#accessibility-and-ux-notes)
-14. [Troubleshooting](#troubleshooting)
-15. [Future Improvements](#future-improvements)
-16. [License](#license)
+## A Vision for Informed Decision-Making
 
-## Project Overview
-
-This application is designed to help students answer three common questions:
-
-- What is my current CGPA right now?
-- If I take these future courses, what will my projected CGPA be?
-- What minimum performance is required to hit a target CGPA?
-
-The app uses a tabbed academic dashboard:
-
-- **My Grades**: Enter completed semesters and courses.
-- **Forecast**: Model future courses under best/realistic/worst scenarios.
-- **Insights**: Visualize semester performance and identify weak points.
-
-## Key Features
-
-### 1. My Grades
-
-- Large, color-coded CGPA display.
-- Add unlimited semesters.
-- Add/edit/delete courses inside each semester.
-- Per-semester GPA badge.
-- Automatic save on every valid change.
+Every semester brings the same question: *How am I really performing?* Not just academically, but strategically—where do I stand right now, and what does my future look like if I make different choices? This application exists to answer that question with clarity, precision, and actionable insight.
 
-### 2. Forecast
+Built as a practical, browser-based dashboard for university students, this tool transforms raw grades into meaningful intelligence. It lets you track cumulative academic performance, simulate future scenarios, and identify exactly where to focus your effort. No complicated setup, no accounts to manage, no learning curve—just data that tells your story.
 
-- Live projected CGPA from current + future courses.
-- Scenario toggle:
-  - **Best Case**: all forecast grades treated as `A`
-  - **Realistic**: uses entered forecast grades
-  - **Worst Case**: all forecast grades treated as `F`
-- Delta indicator (`+` or `-`) versus current CGPA.
-- Target planner estimates required consecutive-`A` semesters based on selected units/semester.
+## The Student Journey
 
-### 3. Insights
+### Meet Sarah: The Strategic Planner
 
-- Horizontal bar chart (Chart.js) showing GPA per semester.
-- Summary cards:
-  - Highest GPA semester
-  - Lowest GPA semester
-  - Total units completed
-  - Best course
-  - Worst course
-- “What’s dragging your CGPA” list for courses below grade `C`.
-- Minimum grade calculator for reaching a target CGPA with available future units.
+Sarah is a third-year software engineering student who has maintained a solid 3.8 CGPA. She's ambitious—she wants to apply for a master's program that requires a 4.2 minimum. With four semesters left, she's unsure: *Is this achievable? What courses should I prioritize?* 
 
-### 4. Utility Tools
+She opens the Grade Tracker on her laptop, enters all her completed grades, and immediately sees her exact standing: 3.8. Then she shifts to the Forecast tab and begins modeling scenarios. She enters her planned courses, adjusts grades under different scenarios (best case, realistic, worst case), and watches her projected CGPA update live. Within minutes, she discovers that maintaining straight A's with a consistent course load would bring her to 4.15—close, but not quite there. By swapping one elective for a higher-unit core course, her realistic projection jumps to 4.22. 
 
-- Reset all data (with confirmation modal).
-- Export state as JSON.
-- Import valid JSON state.
-- Load prefilled same-year sample using **Load BSE Sample** (from `import_this_file.json`).
-- Toast notifications for success/error/info events.
+Armed with this insight, Sarah makes an informed decision. She exports her analysis as JSON, shares it with her academic advisor, and moves forward with confidence.
 
-### 5. Modal-Based UX
+### Meet Ahmed: The Struggling Student
 
-Instead of browser alerts/prompts, the app uses custom in-app modal popups for:
+Ahmed is a second-year student whose first year wasn't kind. He averaged a 2.3 CGPA, and he's discouraged. He knows he wasn't focused, and now he's determined to turn it around. But he needs a wake-up call first: *How bad is it really, and can I recover?*
 
-- Add semester
-- Add course
-- Add future course
-- Enter credit units
-- Confirm destructive actions
+He enters his grades into the tracker and sees the stark reality visualized in the Insights tab: a bar chart of his semester GPAs shows a telling story—his first year's downward trend. But then he sees something else: the app calculates the exact grade average he needs in remaining courses to hit a 3.0 (the minimum to maintain a valid GPA). It's 3.6 per course. That's a B+ average, which feels attainable compared to the terror of complete failure.
 
-## Tech Stack
+Ahmed's next semester, he uses the Forecast feature to plan realistically, entering the courses he'll take and setting a conservative grade estimate (B average). His projected CGPA climbs to 2.8. One more strong semester on top of that could push him to 3.1. The numbers give him hope. He screenshots his forecast, shows it to friends, and they study together toward that goal.
 
-- **HTML5** (semantic structure)
-- **CSS3** (responsive card UI with BEM-style classes)
-- **Vanilla JavaScript (ES6+)**
-- **Chart.js 4.4.1** (CDN)
-- **Google Fonts**:
-  - DM Sans (UI text)
-  - Space Mono (numeric displays)
+### Meet Zainab: The Data-Driven Analyst
 
-No framework and no build tools are required.
+Zainab is a final-year student working on her thesis while completing her last two courses. She's always been meticulous with her studies—a 4.4 CGPA—and she wants documentation of exactly which courses helped and which ones challenged her most.
 
-## Project Structure
+She uses the Grade Tracker's export feature to generate a complete JSON record of her four years: every semester, every course, every grade. She imports this into her personal archive. Then, she uses the Insights dashboard to identify patterns: which years were hardest? Which course types consistently gave her the best grades? The visual dashboard becomes a narrative of her academic journey—something she'll reflect on fondly (and practically) in future interviews.
 
-```text
-my-cgpa/
-├── index.html
-├── style.css
-├── app.js
-├── import_this_file.json
-└── README.md
-```
+## How the Application Works
 
-### File Responsibilities
+The Grade Tracker operates around three core questions that drive everything: *Where am I now? Where am I headed? And what choices move me forward?*
 
-- `index.html`: semantic app layout and external asset links
-- `style.css`: full visual system and responsive behavior
-- `app.js`: app logic (state, calculations, rendering, events, chart, utilities)
-- `import_this_file.json`: sample data file for import testing
+### Dashboard: Your Academic Snapshot
 
-## Grade Scale and Formulas
+When you first open the application, you're met with a clean interface showing your current CGPA prominently. This is not buried in a spreadsheet—it's beautiful, it's immediate, and it's yours. The dashboard greets you with context-aware messages based on the time of day and your current academic standing, creating a personalised experience every time you visit.
 
-### 5.0 Grade Point Mapping
+### My Grades: Building Your Record
 
-| Grade | Point |
-|------|------:|
-| A    | 5.0 |
-| B+   | 4.5 |
-| B    | 4.0 |
-| C+   | 3.5 |
-| C    | 3.0 |
-| D+   | 2.5 |
-| D    | 2.0 |
-| F    | 0.0 |
+The My Grades section is where your academic history lives. You build this incrementally—add a semester, then add courses within that semester, assign credit units, and enter your grade. As you input each course, your semester GPA and overall CGPA recalculate instantly. This isn't a form to fill out later; it's a living document that updates with every change. All data persists automatically, so your information is always safe and always available when you come back.
 
-### Core Formulas
+### Forecast: Modeling Your Future
 
-Semester GPA:
+The true power of this tool emerges in the Forecast section. Here, you enter courses you plan to take and grades you expect to earn. The application then shows you three scenarios: a best-case (all A's), a realistic estimate (your entered grades), and a worst-case (all F's). This isn't pessimism—it's preparedness. You can see how different choices affect your trajectory. More importantly, you can test: *If I take this course elective instead, what happens to my GPA?* The live delta display shows exactly how many tenths your current and future performance might shift your CGPA.
 
-```text
-Semester GPA = Σ(points × units) / Σ(units)
-```
+For ambitious students, the application includes a target planner. Tell it your dream CGPA and how many units you expect per semester, and it calculates the exact number of consecutive A-grade semesters you need. It's honest, it's clear, and it empowers you to make real decisions about your academic path.
 
-Overall CGPA:
+### Insights: Understanding Your Patterns
 
-```text
-CGPA = Σ(all points × all units) / Σ(all units)
-```
+The Insights section tells your academic story in visual language. Your semester-by-semester GPA history appears as a bar chart, showing trends at a glance. Summary cards highlight your highest and lowest-performing semesters, your best and worst courses, and your total units completed. These aren't just statistics—they're insights that help you understand yourself as a student.
 
-Projected CGPA:
+For students looking to improve, the "What's Dragging Your CGPA" section lists every course where you scored below a C. These are your growth areas—the specific courses and grades holding back your overall performance. Seeing them listed this way often creates the "aha moment" that motivates change. You're not just looking at numbers; you're looking at opportunity.
 
-```text
-Projected CGPA = CGPA over (completed courses + forecast courses)
-```
+Finally, the minimum-grade calculator answers the pragmatic question students ask themselves: with the courses remaining in your degree program, what exact average grade must you maintain to reach your target CGPA? It's the answer you need when deciding whether to add or drop a course, when planning your next semester, or when considering your options.
 
-Required average points for target CGPA:
+## Built for Privacy and Simplicity
 
-```text
-Needed GPA per future unit =
-(targetCGPA × (currentUnits + futureUnits) - currentCGPA × currentUnits) / futureUnits
-```
+This application runs entirely in your browser. There's no signup, no account needed, no data sent to any server. Your information stays on your device, kept safe in your browser's local storage. The design is straightforward—every feature serves a purpose, and you'll never be confused about where to find what you need.
 
-## How to Run Locally
+The entire application is responsive and works smoothly on your laptop, tablet, or phone. Whether you're planning at your desk or checking your GPA while walking across campus, everything adapts to your screen.
 
-Since this is a static app, you can run it in two simple ways.
+## Understanding the Mathematics
 
-### Option A: Open directly
+The application uses a standard 5.0 grade point system. Your current CGPA is calculated by taking every course you've completed, multiplying the grade points by the course's credit units (weight), summing all those values, and dividing by your total credit units. This gives you a precise, weighted average that reflects both your performance and the load of each course.
 
-1. Navigate to the project folder.
-2. Double-click `index.html`.
+When you enter forecast courses, the application applies the same calculation to show you your projected future CGPA. The target planning feature works backwards: if you tell it your goal CGPA and how many units you'll take going forward, it calculates the exact grade point average you need per course to reach that goal. It's transparent math that helps you make real plans.
 
-### Option B: Use VS Code Live Server (recommended)
+## Getting Started
 
-1. Open the folder in VS Code.
-2. Run a local static server (for example Live Server extension).
-3. Open the served URL in your browser.
+Simply open the `index.html` file in your web browser. That's it. The application works immediately with no installation, no waiting, no setup required. Save the folder to your computer or share it with classmates—it works anywhere you have a web browser.
 
-## Deploy to GitHub Pages
+## Using the Application: Your Journey
 
-1. Push this project to a GitHub repository.
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment**:
-   - Source: **Deploy from a branch**
-   - Branch: **main** (or your default branch)
-   - Folder: **/ (root)**
-4. Save and wait for deployment.
-5. Open the generated GitHub Pages URL.
+**Your First Steps**: Add your current and past semesters. For each semester, add the courses you've completed with their credit units and grades. Watch your CGPA calculate in real-time.
 
-No extra configuration is needed because all dependencies are loaded from CDNs and local files.
+**Planning Ahead**: Once your history is recorded, shift to Forecast. Enter the courses you plan to take and realistic grade estimates. See three scenarios—best, realistic, worst—and watch how they affect your projected CGPA. Adjust your course selections and grades to see the impact immediately.
 
-## How to Use the App
+**Finding Insights**: Browse the Insights tab to understand your academic patterns. Which semesters were your strongest? Which courses pulled down your average? The visual dashboard answers these questions and helps you understand your strengths and weaknesses as a learner.
 
-### Tab 1: My Grades
+**Sharing Your Analysis**: Export your complete data as JSON. Share it with your academic advisor, compare it with classmates' (with permission), or keep it as a personal record of your entire degree.
 
-1. Click **Add Semester**.
-2. Enter semester name in the modal.
-3. Inside the semester card, click **Add Course**.
-4. Enter course name and units, then set grade.
-5. CGPA and semester GPA update automatically.
+## Built-In Acceleration for Software Engineering Students
 
-### Tab 2: Forecast
+If you're in the Bachelor of Software Engineering program at Mbarara University, the application comes pre-configured with your entire curriculum. Every course code, name, and credit unit is already loaded. A single "Load BSE Sample" button populates realistic demo data so you can see the Forecast and Insights features in action immediately. Delete the sample data whenever you're ready to enter your real grades.
 
-1. Click **Add Future Course** and enter future courses.
-2. Use scenario buttons to switch assumptions.
-3. Watch **Projected CGPA** and delta update live.
-4. Enter target CGPA + units/semester in planner to estimate required consecutive A semesters.
+## Data, Security, and Control
 
-### Tab 3: Insights
+Your academic data never leaves your device. When you export, you get a JSON file that's yours to keep forever. You can import that file on another computer, share it securely, or backup to your own storage. The application cannot access your location, contacts, or any other personal information. It's just you, your grades, and the insights you gain from them.
 
-1. Review semester GPA chart.
-2. Check highest/lowest semester and best/worst course cards.
-3. Inspect the “dragging” list (courses below C).
-4. Use minimum-grade calculator for required future average.
+## Getting Help: Troubleshooting
 
-## Quick Start for BSE Classmates
+**The application won't open**: Ensure you're opening it by double-clicking `index.html` in your file browser, or dragging the file into your web browser.
 
-This app includes a one-click starter dataset for Software Engineering students in the same year as the author.
+**Grades aren't saving**: Check that your browser hasn't disabled local storage (usually found in Privacy/Security settings). Private browsing mode prevents saving—use normal mode for this app.
 
-1. Open the deployed app on GitHub Pages.
-2. Click **Load BSE Sample** in the top action bar.
-3. Confirm overwrite if you already have data.
-4. Start editing grades/units immediately to simulate your own outcomes.
+**The chart isn't showing**: The application requires internet access for a visualization library. Ensure you're connected to the internet and check that no browser extensions are blocking external resources.
 
-### What this button does
+**Data looks corrupted after import**: This usually means the JSON file format was changed. Make sure you're importing a file you downloaded from this app, not manually edited.
 
-- Automatically fetches `import_this_file.json` from the project root.
-- Validates the JSON before loading.
-- Replaces current app data only after confirmation.
+## What's Next: Future Possibilities
 
-### Requirement
-
-- This is designed for GitHub Pages or any HTTP server.
-- If you open the app using `file:///...`, browser fetch rules may block this automatic import.
-
-## Data Persistence and Backup
-
-### Local Persistence
-
-The app saves data in browser `localStorage` using:
-
-- Key: `cgpa_app_state_v1`
-
-This means data remains available after refreshing or reopening the page on the same browser profile.
-
-### Backup/Restore
-
-- **Export JSON**: downloads your full app state
-- **Import JSON**: restores data from a valid JSON file
-
-## Import/Export JSON Format
-
-Expected top-level structure:
-
-```json
-{
-  "semesters": [
-    {
-      "id": "sem_1704067200000",
-      "name": "Semester 1",
-      "courses": [
-        {
-          "id": "c_1704067201000",
-          "name": "Calculus",
-          "units": 3,
-          "grade": "A"
-        }
-      ]
-    }
-  ],
-  "forecast": [
-    {
-      "id": "f_1704067202000",
-      "name": "Physics",
-      "units": 4,
-      "grade": "B+"
-    }
-  ],
-  "settings": {
-    "activeTab": "grades",
-    "scenario": "realistic",
-    "targetCGPA": "4.50",
-    "targetUnitsPerSemester": "18",
-    "insightTargetCGPA": "4.20",
-    "insightFutureUnits": "24"
-  }
-}
-```
-
-## Validation Rules
-
-The app validates user input before saving:
-
-- Course name: cannot be blank
-- Semester name: cannot be blank
-- Units: integer from `1` to `6`
-- Grade: must be one of `A, B+, B, C+, C, D+, D, F`
-- Import JSON: must match required state structure
-
-Invalid inputs are rejected with user-friendly toast notifications.
-
-## Accessibility and UX Notes
-
-- Semantic HTML sections for clear structure.
-- ARIA labels on key interactive elements.
-- Keyboard support in modal actions:
-  - `Enter` confirms
-  - `Esc` cancels
-- Responsive layout optimized for mobile and desktop.
-
-## Troubleshooting
-
-### Buttons not responding
-
-- Open browser DevTools console and check for JavaScript errors.
-- Confirm `app.js` is linked correctly in `index.html`.
-- Hard refresh browser (`Ctrl + F5`) to clear stale script cache.
-
-### Data not persisting
-
-- Ensure browser storage is not blocked.
-- Do not use private/incognito mode if persistence is required.
-- Verify `localStorage` is enabled in your browser settings.
-
-### Chart not visible
-
-- Confirm internet access for Chart.js CDN.
-- Check that the script tag for Chart.js loads before `app.js`.
-
-## Future Improvements
-
-- Add multi-profile support (different students in one browser).
-- Add GPA trend line and cumulative chart.
-- Add printable PDF report export.
-- Add optional cloud sync/authentication.
-- Add keyboard focus trapping inside modals for full accessibility.
+This version is complete and ready to help you right now. Future versions might include the ability to track multiple profiles on the same computer, more detailed charts showing your academic trends over time, the ability to print professional reports to share with advisors, and options to sync your data across devices. But the core mission will always remain: clear, honest, actionable insight into your academic performance.
 
 ## License
 
-This project is currently for academic and personal use.
+This project is made for academic and personal use. Students, classmates, and peers are all encouraged to use, modify, and learn from it freely. Share it with others in your program. Build on it. Make it your own.
 
-If you want to make it open-source, add a license file (for example MIT) and update this section accordingly.
+---
+
+**Built with intention for students who take their academics seriously.** Every feature exists because students asked for it. Every interaction was designed to save you time. Every number is calculated to be trustworthy.
