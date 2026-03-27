@@ -143,11 +143,11 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             Y1S1: "timetables/y1s1.jpg",
             Y1S2: "timetables/timetable_year1_sem2.png",
             Y2S1: "timetables/y2s1.jpg",
-          Y2S2: "timetables/timetable_year2_sem2.png",
+            Y2S2: "timetables/timetable_year2_sem2.png",
             Y3S1: "timetables/y3s1.jpg",
-          Y3S2: "timetables/timetable_year3_sem2.png",
+            Y3S2: "timetables/timetable_year3_sem2.png",
             Y4S1: "timetables/y4s1.jpg",
-          Y4S2: "timetables/timetable_year4_sem2.png"
+            Y4S2: "timetables/timetable_year4_sem2.png"
         };
 
         const ADJECTIVES = [
