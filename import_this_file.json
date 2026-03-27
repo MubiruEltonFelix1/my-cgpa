@@ -1,0 +1,98 @@
+{
+  "semesters": [
+    {
+      "id": "sem_1774630423439",
+      "name": "Year 1 Semester 1",
+      "courses": [
+        {
+          "id": "c_1774630434777",
+          "name": "Political Economy",
+          "units": 3,
+          "grade": "A"
+        },
+        {
+          "id": "c_1774630454664",
+          "name": "Principles of Programming",
+          "units": 4,
+          "grade": "A"
+        },
+        {
+          "id": "c_1774630472828",
+          "name": "Software Development Principles",
+          "units": 4,
+          "grade": "A"
+        },
+        {
+          "id": "c_1774630487079",
+          "name": "Linear Algebra",
+          "units": 3,
+          "grade": "A"
+        },
+        {
+          "id": "c_1774630498147",
+          "name": "Communication Skills",
+          "units": 3,
+          "grade": "A"
+        },
+        {
+          "id": "c_1774630511256",
+          "name": "Discrete Math",
+          "units": 3,
+          "grade": "A"
+        }
+      ]
+    }
+  ],
+  "forecast": [
+    {
+      "id": "f_1774630542229",
+      "name": "Object Oriented Programming",
+      "units": 4,
+      "grade": "A"
+    },
+    {
+      "id": "f_1774630557251",
+      "name": "Multivariable Calculus",
+      "units": 4,
+      "grade": "A"
+    },
+    {
+      "id": "f_1774630586508",
+      "name": "Software Engineering Practices",
+      "units": 3,
+      "grade": "A"
+    },
+    {
+      "id": "f_1774630612848",
+      "name": "Political Economy",
+      "units": 3,
+      "grade": "B"
+    },
+    {
+      "id": "f_1774630639768",
+      "name": "Database",
+      "units": 4,
+      "grade": "A"
+    },
+    {
+      "id": "f_1774630653475",
+      "name": "Operating Systems",
+      "units": 4,
+      "grade": "A"
+    },
+    {
+      "id": "f_1774630665917",
+      "name": "COA",
+      "units": 3,
+      "grade": "A"
+    }
+  ],
+  "settings": {
+    "activeTab": "forecast",
+    "scenario": "best",
+    "targetCGPA": "",
+    "targetUnitsPerSemester": "",
+    "insightTargetCGPA": "0.01",
+    "insightFutureUnits": ""
+  }
+}

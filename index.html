@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CGPA Calculator & Forecaster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header__title-wrap">
+      <h1 class="app-header__title">CGPA Calculator & Forecaster</h1>
+      <p class="app-header__subtitle">Track results, project outcomes, and plan smarter semesters.</p>
+    </div>
+    <div class="app-header__actions" aria-label="Utility actions">
+      <button id="export-btn" class="btn btn--ghost" aria-label="Export data as JSON">Export JSON</button>
+      <label for="import-input" class="btn btn--ghost" aria-label="Import data from JSON">Import JSON</label>
+      <input id="import-input" class="sr-only" type="file" accept="application/json" aria-label="Choose JSON file to import">
+      <button id="reset-btn" class="btn btn--danger" aria-label="Reset all saved data">Reset All Data</button>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <nav id="tabs-nav" class="tabs-nav tabs-nav--index-0" aria-label="Main tabs">
+      <button class="tab-btn tab-btn--active" data-tab="grades" aria-label="Open My Grades tab">My Grades</button>
+      <button class="tab-btn" data-tab="forecast" aria-label="Open Forecast tab">Forecast</button>
+      <button class="tab-btn" data-tab="insights" aria-label="Open Insights tab">Insights</button>
+      <span class="tabs-nav__indicator" aria-hidden="true"></span>
+    </nav>
+
+    <section id="tab-grades" class="tab-panel tab-panel--active" aria-label="My Grades section">
+      <article class="card card--hero">
+        <p class="card__label">Current CGPA</p>
+        <p id="cgpa-value" class="cgpa-value gpa--good">0.00</p>
+        <p id="cgpa-meta" class="cgpa-meta">0 units completed</p>
+      </article>
+
+      <div class="section-head">
+        <h2>Semesters</h2>
+        <button id="add-semester-btn" class="btn btn--accent" aria-label="Add a new semester">Add Semester</button>
+      </div>
+
+      <section id="semesters-container" class="semester-grid" aria-live="polite"></section>
+    </section>
+
+    <section id="tab-forecast" class="tab-panel" aria-label="Forecast section">
+      <div class="forecast-grid">
+        <article class="card">
+          <p class="card__label">Current CGPA</p>
+          <p id="forecast-current-cgpa" class="metric-value font-number">0.00</p>
+        </article>
+
+        <article class="card">
+          <p class="card__label">Projected CGPA</p>
+          <p id="forecast-projected-cgpa" class="metric-value font-number">0.00</p>
+          <p id="forecast-delta" class="metric-delta metric-delta--neutral">+0.00</p>
+        </article>
+      </div>
+
+      <article class="card">
+        <div class="section-head section-head--tight">
+          <h2>Scenario</h2>
+          <div id="scenario-toggle" class="scenario-toggle" role="group" aria-label="Forecast scenarios">
+            <button class="btn btn--small scenario-btn scenario-btn--active" data-scenario="best" aria-label="Best case scenario">Best Case</button>
+            <button class="btn btn--small scenario-btn" data-scenario="realistic" aria-label="Realistic scenario">Realistic</button>
+            <button class="btn btn--small scenario-btn" data-scenario="worst" aria-label="Worst case scenario">Worst Case</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="section-head section-head--tight">
+          <h2>Future Courses</h2>
+          <button id="add-forecast-course-btn" class="btn btn--accent" aria-label="Add a future course">Add Future Course</button>
+        </div>
+        <div id="forecast-container" aria-live="polite"></div>
+      </article>
+
+      <article class="card">
+        <h2>Target CGPA Planner</h2>
+        <div class="form-grid">
+          <label class="field">
+            <span>Target CGPA</span>
+            <input id="target-cgpa-input" type="number" min="0" max="5" step="0.01" placeholder="4.50" aria-label="Target CGPA">
+          </label>
+          <label class="field">
+            <span>Units per Semester</span>
+            <input id="target-units-per-semester" type="number" min="1" max="30" step="1" placeholder="18" aria-label="Units per semester">
+          </label>
+        </div>
+        <p id="target-semesters-result" class="result-text">Enter a target and units per semester to estimate required A-grade semesters.</p>
+      </article>
+    </section>
+
+    <section id="tab-insights" class="tab-panel" aria-label="Insights section">
+      <article class="card">
+        <h2>Semester GPA Chart</h2>
+        <div class="chart-wrap">
+          <canvas id="gpa-chart" aria-label="Bar chart showing semester GPAs" role="img"></canvas>
+        </div>
+      </article>
+
+      <section id="insights-stats" class="insights-stats" aria-live="polite"></section>
+
+      <article class="card">
+        <h2>What's Dragging Your CGPA</h2>
+        <ul id="dragging-list" class="dragging-list"></ul>
+      </article>
+
+      <article class="card">
+        <h2>Minimum Grade Calculator</h2>
+        <div class="form-grid">
+          <label class="field">
+            <span>Target CGPA</span>
+            <input id="insight-target-cgpa" type="number" min="0" max="5" step="0.01" placeholder="4.20" aria-label="Insights target CGPA">
+          </label>
+          <label class="field">
+            <span>Future Units Available</span>
+            <input id="insight-future-units" type="number" min="1" max="100" step="1" placeholder="24" aria-label="Insights future units available">
+          </label>
+        </div>
+        <p id="minimum-grade-result" class="result-text">Enter target CGPA and future units to see the minimum required average grade point.</p>
+      </article>
+    </section>
+  </main>
+
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
