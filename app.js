@@ -2,505 +2,505 @@ let state;
 let chart;
 
 const CURRICULUM = {
-  "Y1S1": {
-    label: "Year 1 · Semester 1",
-    courses: [
-      { code: "SWE1103", name: "Linear Algebra", cu: 3 },
-      { code: "DVS1106", name: "Introduction to Political Economy", cu: 3 },
-      { code: "SWE1101", name: "Discrete Mathematics", cu: 3 },
-      { code: "SWE1102", name: "Structured Programming with C", cu: 4 },
-      { code: "SWE1104", name: "Software Development Principles", cu: 4 },
-      { code: "SWE1105", name: "Communication Skills", cu: 3 }
-    ]
-  },
-  "Y1S2": {
-    label: "Year 1 · Semester 2",
-    courses: [
-      { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
-      { code: "SWE1201", name: "Object Oriented Programming I", cu: 4 },
-      { code: "SWE1202", name: "Multivariate Calculus", cu: 4 },
-      { code: "SWE1203", name: "Operating Systems", cu: 4 },
-      { code: "SWE1204", name: "Software Systems Engineering Practice", cu: 3 },
-      { code: "SWE1205", name: "Database Programming", cu: 4 },
-      { code: "SWE1206", name: "Computer Architecture and Organization", cu: 3 }
-    ]
-  },
-  "Y2S1": {
-    label: "Year 2 · Semester 1",
-    courses: [
-      { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
-      { code: "SWE2101", name: "Object Oriented Programming II", cu: 4 },
-      { code: "SWE2102", name: "Requirements Engineering", cu: 3 },
-      { code: "SWE2103", name: "Probability and Statistics", cu: 4 },
-      { code: "SWE2104", name: "Data Structures and Algorithms", cu: 3 },
-      { code: "SWE2105", name: "Geographic Information Systems", cu: 4 },
-      { code: "SWE2106", name: "Internet Technology and Web Design", cu: 4 },
-      { code: "SWE2107", name: "Systems Analysis and Design", cu: 4 }
-    ]
-  },
-  "Y2S2": {
-    label: "Year 2 · Semester 2",
-    courses: [
-      { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
-      { code: "SWE2201", name: "Numerical Analysis", cu: 3 },
-      { code: "SWE2202", name: "Data Communication Technology", cu: 4 },
-      { code: "SWE2203", name: "Software Architecture and Design", cu: 3 },
-      { code: "SWE2204", name: "Software Metrics", cu: 3 },
-      { code: "SWE2205", name: "User Interface Design and Development", cu: 4 },
-      { code: "SWE2206", name: "Distributed Computing", cu: 4 }
-    ]
-  },
-  "Y3S1": {
-    label: "Year 3 · Semester 1",
-    courses: [
-      { code: "SWE3101", name: "Human Computer Interaction", cu: 4 },
-      { code: "SWE3102", name: "Software Reliability and Testing", cu: 4 },
-      { code: "SWE3103", name: "Software Project Management", cu: 4 },
-      { code: "SWE3104", name: "Modelling and Simulation", cu: 4 },
-      { code: "SWE3105", name: "Research Methods in Computing", cu: 4 },
-      { code: "SWE3106", name: "Mobile Networks and Computing", cu: 4 }
-    ]
-  },
-  "Y3S2": {
-    label: "Year 3 · Semester 2",
-    courses: [
-      { code: "SWE3201", name: "Embedded Systems Software", cu: 4 },
-      { code: "SWE3202", name: "Mobile Computing and Applications", cu: 4 },
-      { code: "SWE3203", name: "Third Year Research Project", cu: 4 },
-      { code: "SWE3204", name: "Data Mining", cu: 3 },
-      { code: "SWE3205", name: "Compiler Construction", cu: 4 },
-      { code: "SWE3206", name: "Systems Programming - Linux", cu: 4 }
-    ]
-  },
-  "Y4S1": {
-    label: "Year 4 · Semester 1",
-    courses: [
-      { code: "SWE4103", name: "Formal Methods", cu: 3 },
-      { code: "SWE4101", name: "Digital System Design", cu: 4 },
-      { code: "SWE4102", name: "Computer Graphics Engineering", cu: 4 },
-      { code: "SWE4104", name: "Software Design Patterns", cu: 4 },
-      { code: "SWE4105", name: "Artificial Intelligence", cu: 4 },
-      { code: "SWE4106", name: "Ethical and Professional Issues in Computing", cu: 4 }
-    ]
-  },
-  "Y4S2": {
-    label: "Year 4 · Semester 2",
-    courses: [
-      { code: "SWE4201", name: "Machine Learning", cu: 4 },
-      { code: "SWE4202", name: "Software Maintenance and Evolution", cu: 4 },
-      { code: "SWE4203", name: "Entrepreneurship", cu: 3 },
-      { code: "SWE4204", name: "Software Security", cu: 4 },
-      { code: "SWE4205", name: "Final Year Project", cu: 5 }
-    ]
-  }
+    "Y1S1": {
+        label: "Year 1 · Semester 1",
+        courses: [
+            { code: "SWE1103", name: "Linear Algebra", cu: 3 },
+            { code: "DVS1106", name: "Introduction to Political Economy", cu: 3 },
+            { code: "SWE1101", name: "Discrete Mathematics", cu: 3 },
+            { code: "SWE1102", name: "Structured Programming with C", cu: 4 },
+            { code: "SWE1104", name: "Software Development Principles", cu: 4 },
+            { code: "SWE1105", name: "Communication Skills", cu: 3 }
+        ]
+    },
+    "Y1S2": {
+        label: "Year 1 · Semester 2",
+        courses: [
+            { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
+            { code: "SWE1201", name: "Object Oriented Programming I", cu: 4 },
+            { code: "SWE1202", name: "Multivariate Calculus", cu: 4 },
+            { code: "SWE1203", name: "Operating Systems", cu: 4 },
+            { code: "SWE1204", name: "Software Systems Engineering Practice", cu: 3 },
+            { code: "SWE1205", name: "Database Programming", cu: 4 },
+            { code: "SWE1206", name: "Computer Architecture and Organization", cu: 3 }
+        ]
+    },
+    "Y2S1": {
+        label: "Year 2 · Semester 1",
+        courses: [
+            { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
+            { code: "SWE2101", name: "Object Oriented Programming II", cu: 4 },
+            { code: "SWE2102", name: "Requirements Engineering", cu: 3 },
+            { code: "SWE2103", name: "Probability and Statistics", cu: 4 },
+            { code: "SWE2104", name: "Data Structures and Algorithms", cu: 3 },
+            { code: "SWE2105", name: "Geographic Information Systems", cu: 4 },
+            { code: "SWE2106", name: "Internet Technology and Web Design", cu: 4 },
+            { code: "SWE2107", name: "Systems Analysis and Design", cu: 4 }
+        ]
+    },
+    "Y2S2": {
+        label: "Year 2 · Semester 2",
+        courses: [
+            { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
+            { code: "SWE2201", name: "Numerical Analysis", cu: 3 },
+            { code: "SWE2202", name: "Data Communication Technology", cu: 4 },
+            { code: "SWE2203", name: "Software Architecture and Design", cu: 3 },
+            { code: "SWE2204", name: "Software Metrics", cu: 3 },
+            { code: "SWE2205", name: "User Interface Design and Development", cu: 4 },
+            { code: "SWE2206", name: "Distributed Computing", cu: 4 }
+        ]
+    },
+    "Y3S1": {
+        label: "Year 3 · Semester 1",
+        courses: [
+            { code: "SWE3101", name: "Human Computer Interaction", cu: 4 },
+            { code: "SWE3102", name: "Software Reliability and Testing", cu: 4 },
+            { code: "SWE3103", name: "Software Project Management", cu: 4 },
+            { code: "SWE3104", name: "Modelling and Simulation", cu: 4 },
+            { code: "SWE3105", name: "Research Methods in Computing", cu: 4 },
+            { code: "SWE3106", name: "Mobile Networks and Computing", cu: 4 }
+        ]
+    },
+    "Y3S2": {
+        label: "Year 3 · Semester 2",
+        courses: [
+            { code: "SWE3201", name: "Embedded Systems Software", cu: 4 },
+            { code: "SWE3202", name: "Mobile Computing and Applications", cu: 4 },
+            { code: "SWE3203", name: "Third Year Research Project", cu: 4 },
+            { code: "SWE3204", name: "Data Mining", cu: 3 },
+            { code: "SWE3205", name: "Compiler Construction", cu: 4 },
+            { code: "SWE3206", name: "Systems Programming - Linux", cu: 4 }
+        ]
+    },
+    "Y4S1": {
+        label: "Year 4 · Semester 1",
+        courses: [
+            { code: "SWE4103", name: "Formal Methods", cu: 3 },
+            { code: "SWE4101", name: "Digital System Design", cu: 4 },
+            { code: "SWE4102", name: "Computer Graphics Engineering", cu: 4 },
+            { code: "SWE4104", name: "Software Design Patterns", cu: 4 },
+            { code: "SWE4105", name: "Artificial Intelligence", cu: 4 },
+            { code: "SWE4106", name: "Ethical and Professional Issues in Computing", cu: 4 }
+        ]
+    },
+    "Y4S2": {
+        label: "Year 4 · Semester 2",
+        courses: [
+            { code: "SWE4201", name: "Machine Learning", cu: 4 },
+            { code: "SWE4202", name: "Software Maintenance and Evolution", cu: 4 },
+            { code: "SWE4203", name: "Entrepreneurship", cu: 3 },
+            { code: "SWE4204", name: "Software Security", cu: 4 },
+            { code: "SWE4205", name: "Final Year Project", cu: 5 }
+        ]
+    }
 };
 
 const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2"];
 
 (() => {
-  // ╔══════════════════════════════════════════╗
-  // ║  CONFIG                                  ║
-  // ╚══════════════════════════════════════════╝
-  const GRADE_MAP = {
-    A: 5.0,
-    "B+": 4.5,
-    B: 4.0,
-    "C+": 3.5,
-    C: 3.0,
-    "D+": 2.5,
-    D: 2.0,
-    F: 0.0
-  };
+        // ╔══════════════════════════════════════════╗
+        // ║  CONFIG                                  ║
+        // ╚══════════════════════════════════════════╝
+        const GRADE_MAP = {
+            A: 5.0,
+            "B+": 4.5,
+            B: 4.0,
+            "C+": 3.5,
+            C: 3.0,
+            "D+": 2.5,
+            D: 2.0,
+            F: 0.0
+        };
 
-  const GRADE_LIST = ["", "A", "B+", "B", "C+", "C", "D+", "D", "F"];
+        const GRADE_LIST = ["", "A", "B+", "B", "C+", "C", "D+", "D", "F"];
 
-  const DEGREE_THRESHOLDS = {
-    first: 4.4,
-    upper: 3.6,
-    lower: 2.8,
-    pass: 2.0
-  };
+        const DEGREE_THRESHOLDS = {
+            first: 4.4,
+            upper: 3.6,
+            lower: 2.8,
+            pass: 2.0
+        };
 
-  const STORAGE_KEYS = {
-    state: "bsse_state_v1",
-    userId: "bsse_user_id",
-    pinHash: "bsse_pin_hash",
-    recoveryHash: "bsse_recovery_hash"
-  };
+        const STORAGE_KEYS = {
+            state: "bsse_state_v1",
+            userId: "bsse_user_id",
+            pinHash: "bsse_pin_hash",
+            recoveryHash: "bsse_recovery_hash"
+        };
 
-  const TIMETABLE_DATES = {
-    Y1S1: "2026-01-12",
-    Y1S2: "2026-01-12",
-    Y2S1: "2026-01-12",
-    Y2S2: "2026-01-12",
-    Y3S1: "2026-01-12",
-    Y3S2: "2026-01-12",
-    Y4S1: "2026-01-12",
-    Y4S2: "2026-01-12"
-  };
+        const TIMETABLE_DATES = {
+            Y1S1: "2026-01-12",
+            Y1S2: "2026-01-12",
+            Y2S1: "2026-01-12",
+            Y2S2: "2026-01-12",
+            Y3S1: "2026-01-12",
+            Y3S2: "2026-01-12",
+            Y4S1: "2026-01-12",
+            Y4S2: "2026-01-12"
+        };
 
-  const TIMETABLE_IMAGES = {
-    Y1S1: "timetables/y1s1.jpg",
-    Y1S2: "timetables/timetable_year1_sem2.png",
-    Y2S1: "timetables/y2s1.jpg",
-    Y2S2: "timetables/y2s2.jpg",
-    Y3S1: "timetables/y3s1.jpg",
-    Y3S2: "timetables/y3s2.jpg",
-    Y4S1: "timetables/y4s1.jpg",
-    Y4S2: "timetables/y4s2.jpg"
-  };
+        const TIMETABLE_IMAGES = {
+            Y1S1: "timetables/y1s1.jpg",
+            Y1S2: "timetables/timetable_year1_sem2.png",
+            Y2S1: "timetables/y2s1.jpg",
+          Y2S2: "timetables/timetable_year2_sem2.png",
+            Y3S1: "timetables/y3s1.jpg",
+          Y3S2: "timetables/timetable_year3_sem2.png",
+            Y4S1: "timetables/y4s1.jpg",
+          Y4S2: "timetables/timetable_year4_sem2.png"
+        };
 
-  const ADJECTIVES = [
-    "swift", "bold", "bright", "calm", "sharp", "proud", "keen", "steady", "brave", "vivid",
-    "noble", "rapid", "stellar", "clear", "grand", "fierce", "fresh", "wise", "spry", "silent",
-    "quick", "sincere", "clean", "mighty", "eager", "wild", "prime", "lucid", "firm", "sane",
-    "crisp", "gentle", "lucky", "epic", "sunny", "cool", "glossy", "royal", "plucky", "smart",
-    "spruce", "golden", "silver", "onyx", "cosmic", "crystal", "steady", "solid", "atomic", "neat"
-  ];
+        const ADJECTIVES = [
+            "swift", "bold", "bright", "calm", "sharp", "proud", "keen", "steady", "brave", "vivid",
+            "noble", "rapid", "stellar", "clear", "grand", "fierce", "fresh", "wise", "spry", "silent",
+            "quick", "sincere", "clean", "mighty", "eager", "wild", "prime", "lucid", "firm", "sane",
+            "crisp", "gentle", "lucky", "epic", "sunny", "cool", "glossy", "royal", "plucky", "smart",
+            "spruce", "golden", "silver", "onyx", "cosmic", "crystal", "steady", "solid", "atomic", "neat"
+        ];
 
-  const ANIMALS = [
-    "eagle", "lion", "hawk", "tiger", "fox", "wolf", "crane", "falcon", "otter", "leopard",
-    "rhino", "panther", "shark", "orca", "viper", "puma", "cobra", "raven", "ibis", "heron",
-    "lynx", "yak", "buffalo", "ram", "kite", "koala", "lemur", "marten", "badger", "wren",
-    "owl", "gecko", "whale", "dolphin", "hyena", "jaguar", "moose", "stoat", "beaver", "condor",
-    "gazelle", "cougar", "bison", "sparrow", "finch", "albatross", "python", "kangaroo", "zebra", "antelope"
-  ];
+        const ANIMALS = [
+            "eagle", "lion", "hawk", "tiger", "fox", "wolf", "crane", "falcon", "otter", "leopard",
+            "rhino", "panther", "shark", "orca", "viper", "puma", "cobra", "raven", "ibis", "heron",
+            "lynx", "yak", "buffalo", "ram", "kite", "koala", "lemur", "marten", "badger", "wren",
+            "owl", "gecko", "whale", "dolphin", "hyena", "jaguar", "moose", "stoat", "beaver", "condor",
+            "gazelle", "cougar", "bison", "sparrow", "finch", "albatross", "python", "kangaroo", "zebra", "antelope"
+        ];
 
-  const WORDLIST = [
-    "apple", "anchor", "angle", "artist", "autumn", "amber", "avenue", "atom", "arrow", "animal",
-    "beacon", "beach", "better", "bamboo", "breeze", "bottle", "button", "binary", "blossom", "bridge",
-    "cactus", "camera", "canvas", "captain", "candle", "carbon", "cereal", "circle", "coffee", "comet",
-    "danger", "daring", "dazzle", "desert", "device", "doctor", "dragon", "drawer", "dream", "drift",
-    "eagle", "earth", "echo", "editor", "effort", "ember", "energy", "engine", "evening", "expert",
-    "fabric", "falcon", "fancy", "farmer", "feather", "fellow", "fiber", "filter", "flame", "flower",
-    "garden", "galaxy", "gentle", "giant", "glory", "golden", "govern", "grace", "guitar", "growth",
-    "hammer", "harbor", "harmony", "hazel", "helmet", "hollow", "honor", "hunter", "hybrid", "horizon",
-    "iceberg", "icon", "idea", "impact", "import", "indigo", "insight", "island", "ivory", "item",
-    "jacket", "jaguar", "jelly", "jewel", "jigsaw", "journal", "jungle", "junior", "justice", "jovial",
-    "kernel", "keeper", "kettle", "keypad", "kindle", "kingdom", "kitten", "kiwi", "knight", "known",
-    "ladder", "lantern", "laser", "leader", "leaf", "legend", "lemon", "level", "lively", "logic",
-    "magnet", "maker", "maple", "market", "matrix", "meadow", "memory", "mentor", "merit", "method",
-    "native", "nebula", "needle", "network", "noble", "notion", "number", "nylon", "nation", "novel",
-    "oasis", "object", "ocean", "office", "olive", "open", "orbit", "origin", "output", "oxygen",
-    "paddle", "palace", "panda", "parcel", "pastel", "pepper", "photon", "piano", "planet", "pocket",
-    "quantum", "quiet", "quiver", "quote", "quartz", "quick", "quest", "queen", "quirk", "quality",
-    "radar", "random", "raven", "reason", "record", "rescue", "rhythm", "river", "rocket", "royal",
-    "sailor", "salmon", "sample", "school", "season", "sensor", "shadow", "signal", "silver", "solar",
-    "table", "talent", "target", "temple", "theory", "thunder", "ticket", "timber", "token", "travel"
-  ];
+        const WORDLIST = [
+            "apple", "anchor", "angle", "artist", "autumn", "amber", "avenue", "atom", "arrow", "animal",
+            "beacon", "beach", "better", "bamboo", "breeze", "bottle", "button", "binary", "blossom", "bridge",
+            "cactus", "camera", "canvas", "captain", "candle", "carbon", "cereal", "circle", "coffee", "comet",
+            "danger", "daring", "dazzle", "desert", "device", "doctor", "dragon", "drawer", "dream", "drift",
+            "eagle", "earth", "echo", "editor", "effort", "ember", "energy", "engine", "evening", "expert",
+            "fabric", "falcon", "fancy", "farmer", "feather", "fellow", "fiber", "filter", "flame", "flower",
+            "garden", "galaxy", "gentle", "giant", "glory", "golden", "govern", "grace", "guitar", "growth",
+            "hammer", "harbor", "harmony", "hazel", "helmet", "hollow", "honor", "hunter", "hybrid", "horizon",
+            "iceberg", "icon", "idea", "impact", "import", "indigo", "insight", "island", "ivory", "item",
+            "jacket", "jaguar", "jelly", "jewel", "jigsaw", "journal", "jungle", "junior", "justice", "jovial",
+            "kernel", "keeper", "kettle", "keypad", "kindle", "kingdom", "kitten", "kiwi", "knight", "known",
+            "ladder", "lantern", "laser", "leader", "leaf", "legend", "lemon", "level", "lively", "logic",
+            "magnet", "maker", "maple", "market", "matrix", "meadow", "memory", "mentor", "merit", "method",
+            "native", "nebula", "needle", "network", "noble", "notion", "number", "nylon", "nation", "novel",
+            "oasis", "object", "ocean", "office", "olive", "open", "orbit", "origin", "output", "oxygen",
+            "paddle", "palace", "panda", "parcel", "pastel", "pepper", "photon", "piano", "planet", "pocket",
+            "quantum", "quiet", "quiver", "quote", "quartz", "quick", "quest", "queen", "quirk", "quality",
+            "radar", "random", "raven", "reason", "record", "rescue", "rhythm", "river", "rocket", "royal",
+            "sailor", "salmon", "sample", "school", "season", "sensor", "shadow", "signal", "silver", "solar",
+            "table", "talent", "target", "temple", "theory", "thunder", "ticket", "timber", "token", "travel"
+        ];
 
-  const RUNTIME = {
-    page: "dashboard",
-    timetableSem: "Y1S1",
-    failedPinAttempts: 0,
-    pinBuffer: "",
-    forecastTarget: "",
-    forecastLeftCU: "",
-    insightTarget: "",
-    insightLeftCU: ""
-  };
+        const RUNTIME = {
+            page: "dashboard",
+            timetableSem: "Y1S1",
+            failedPinAttempts: 0,
+            pinBuffer: "",
+            forecastTarget: "",
+            forecastLeftCU: "",
+            insightTarget: "",
+            insightLeftCU: ""
+        };
 
-  // ╔══════════════════════════════════════════╗
-  // ║  STATE                                   ║
-  // ╚══════════════════════════════════════════╝
-  function buildEmptyGrades() {
-    const grades = {};
-    SEM_ORDER.forEach((semKey) => {
-      grades[semKey] = {};
-      CURRICULUM[semKey].courses.forEach((course) => {
-        grades[semKey][course.code] = "";
-      });
-    });
-    return grades;
-  }
-
-  function defaultState() {
-    const userId = getOrCreateUserId();
-    return {
-      name: "",
-      currentSem: "Y1S1",
-      pin: null,
-      userId,
-      recoveryHash: null,
-      recoveryPhrase: "",
-      grades: buildEmptyGrades(),
-      forecast: []
-    };
-  }
-
-  function loadState() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEYS.state);
-      if (!raw) {
-        state = defaultState();
-        return;
-      }
-      const parsed = JSON.parse(raw);
-      const safe = defaultState();
-
-      state = {
-        ...safe,
-        ...parsed,
-        grades: {
-          ...safe.grades,
-          ...(parsed.grades || {})
-        },
-        forecast: Array.isArray(parsed.forecast) ? parsed.forecast : []
-      };
-
-      // Normalize grades to allowed values only.
-      SEM_ORDER.forEach((semKey) => {
-        CURRICULUM[semKey].courses.forEach((course) => {
-          const value = state.grades[semKey][course.code];
-          state.grades[semKey][course.code] = GRADE_LIST.includes(value) ? value : "";
-        });
-      });
-
-      if (!state.userId) {
-        state.userId = getOrCreateUserId();
-      }
-
-      if (state.pin) {
-        safeStorageSet(STORAGE_KEYS.pinHash, state.pin);
-      }
-      if (state.recoveryHash) {
-        safeStorageSet(STORAGE_KEYS.recoveryHash, state.recoveryHash);
-      }
-    } catch (_err) {
-      state = defaultState();
-      showToast("Could not load saved data. Started fresh.", "error");
-    }
-  }
-
-  function saveState() {
-    try {
-      safeStorageSet(STORAGE_KEYS.state, JSON.stringify(state));
-      if (state.userId) {
-        safeStorageSet(STORAGE_KEYS.userId, state.userId);
-      }
-      if (state.pin) {
-        safeStorageSet(STORAGE_KEYS.pinHash, state.pin);
-      }
-      if (state.recoveryHash) {
-        safeStorageSet(STORAGE_KEYS.recoveryHash, state.recoveryHash);
-      }
-    } catch (_err) {
-      showToast("Could not save your changes.", "error");
-    }
-  }
-
-  // ╔══════════════════════════════════════════╗
-  // ║  CALCULATIONS                            ║
-  // ╚══════════════════════════════════════════╝
-  function semesterGPA(semKey, gradeMap = state.grades) {
-    const semester = CURRICULUM[semKey];
-    let points = 0;
-    let units = 0;
-
-    semester.courses.forEach((course) => {
-      const grade = gradeMap[semKey]?.[course.code] || "";
-      if (!GRADE_MAP.hasOwnProperty(grade)) {
-        return;
-      }
-      points += GRADE_MAP[grade] * course.cu;
-      units += course.cu;
-    });
-
-    return units === 0 ? 0 : points / units;
-  }
-
-  function overallCGPA(gradeMap = state.grades) {
-    let points = 0;
-    let units = 0;
-
-    SEM_ORDER.forEach((semKey) => {
-      CURRICULUM[semKey].courses.forEach((course) => {
-        const grade = gradeMap[semKey]?.[course.code] || "";
-        if (!GRADE_MAP.hasOwnProperty(grade)) {
-          return;
+        // ╔══════════════════════════════════════════╗
+        // ║  STATE                                   ║
+        // ╚══════════════════════════════════════════╝
+        function buildEmptyGrades() {
+            const grades = {};
+            SEM_ORDER.forEach((semKey) => {
+                grades[semKey] = {};
+                CURRICULUM[semKey].courses.forEach((course) => {
+                    grades[semKey][course.code] = "";
+                });
+            });
+            return grades;
         }
-        points += GRADE_MAP[grade] * course.cu;
-        units += course.cu;
-      });
-    });
 
-    return units === 0 ? 0 : points / units;
-  }
-
-  function projectedCGPA() {
-    const projectedMap = deepClone(state.grades);
-    state.forecast.forEach((row) => {
-      if (!projectedMap[row.semKey]) {
-        projectedMap[row.semKey] = {};
-      }
-      if (GRADE_MAP.hasOwnProperty(row.grade)) {
-        projectedMap[row.semKey][row.courseCode] = row.grade;
-      }
-    });
-    return overallCGPA(projectedMap);
-  }
-
-  function degreeClass(cgpa) {
-    if (cgpa >= DEGREE_THRESHOLDS.first) {
-      return "First Class";
-    }
-    if (cgpa >= DEGREE_THRESHOLDS.upper) {
-      return "Upper Second";
-    }
-    if (cgpa >= DEGREE_THRESHOLDS.lower) {
-      return "Lower Second";
-    }
-    return "Pass";
-  }
-
-  function cgpaNeeded(targetCGPA, leftCU) {
-    const current = overallCGPA();
-    const currentUnits = completedCU();
-    if (!Number.isFinite(targetCGPA) || !Number.isFinite(leftCU) || leftCU <= 0) {
-      return null;
-    }
-    const currentPoints = current * currentUnits;
-    const targetPoints = targetCGPA * (currentUnits + leftCU);
-    return (targetPoints - currentPoints) / leftCU;
-  }
-
-  function semestersToTarget(targetCGPA) {
-    const current = overallCGPA();
-    const currentUnits = completedCU();
-    if (targetCGPA <= current) {
-      return 0;
-    }
-    let cumulativeFuture = 0;
-    const idx = SEM_ORDER.indexOf(state.currentSem);
-    for (let i = idx + 1; i < SEM_ORDER.length; i += 1) {
-      cumulativeFuture += semesterUnits(SEM_ORDER[i]);
-      const needed = cgpaNeeded(targetCGPA, cumulativeFuture);
-      if (needed !== null && needed <= 5.0) {
-        return i - idx;
-      }
-    }
-    return Infinity;
-  }
-
-  function draggingCourses() {
-    const rows = [];
-    SEM_ORDER.forEach((semKey) => {
-      CURRICULUM[semKey].courses.forEach((course) => {
-        const grade = state.grades[semKey]?.[course.code] || "";
-        if (!GRADE_MAP.hasOwnProperty(grade)) {
-          return;
+        function defaultState() {
+            const userId = getOrCreateUserId();
+            return {
+                name: "",
+                currentSem: "Y1S1",
+                pin: null,
+                userId,
+                recoveryHash: null,
+                recoveryPhrase: "",
+                grades: buildEmptyGrades(),
+                forecast: []
+            };
         }
-        if (GRADE_MAP[grade] < 3.0) {
-          const impact = (4.0 - GRADE_MAP[grade]) * course.cu;
-          rows.push({
-            semKey,
-            course,
-            grade,
-            impact
-          });
+
+        function loadState() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEYS.state);
+                if (!raw) {
+                    state = defaultState();
+                    return;
+                }
+                const parsed = JSON.parse(raw);
+                const safe = defaultState();
+
+                state = {
+                    ...safe,
+                    ...parsed,
+                    grades: {
+                        ...safe.grades,
+                        ...(parsed.grades || {})
+                    },
+                    forecast: Array.isArray(parsed.forecast) ? parsed.forecast : []
+                };
+
+                // Normalize grades to allowed values only.
+                SEM_ORDER.forEach((semKey) => {
+                    CURRICULUM[semKey].courses.forEach((course) => {
+                        const value = state.grades[semKey][course.code];
+                        state.grades[semKey][course.code] = GRADE_LIST.includes(value) ? value : "";
+                    });
+                });
+
+                if (!state.userId) {
+                    state.userId = getOrCreateUserId();
+                }
+
+                if (state.pin) {
+                    safeStorageSet(STORAGE_KEYS.pinHash, state.pin);
+                }
+                if (state.recoveryHash) {
+                    safeStorageSet(STORAGE_KEYS.recoveryHash, state.recoveryHash);
+                }
+            } catch (_err) {
+                state = defaultState();
+                showToast("Could not load saved data. Started fresh.", "error");
+            }
         }
-      });
-    });
-    return rows.sort((a, b) => b.course.cu - a.course.cu || b.impact - a.impact);
-  }
 
-  function bestCourse() {
-    let best = null;
-    SEM_ORDER.forEach((semKey) => {
-      CURRICULUM[semKey].courses.forEach((course) => {
-        const grade = state.grades[semKey]?.[course.code] || "";
-        if (!GRADE_MAP.hasOwnProperty(grade)) {
-          return;
+        function saveState() {
+            try {
+                safeStorageSet(STORAGE_KEYS.state, JSON.stringify(state));
+                if (state.userId) {
+                    safeStorageSet(STORAGE_KEYS.userId, state.userId);
+                }
+                if (state.pin) {
+                    safeStorageSet(STORAGE_KEYS.pinHash, state.pin);
+                }
+                if (state.recoveryHash) {
+                    safeStorageSet(STORAGE_KEYS.recoveryHash, state.recoveryHash);
+                }
+            } catch (_err) {
+                showToast("Could not save your changes.", "error");
+            }
         }
-        const score = GRADE_MAP[grade] * course.cu;
-        if (!best || score > best.score) {
-          best = { semKey, course, grade, score };
+
+        // ╔══════════════════════════════════════════╗
+        // ║  CALCULATIONS                            ║
+        // ╚══════════════════════════════════════════╝
+        function semesterGPA(semKey, gradeMap = state.grades) {
+            const semester = CURRICULUM[semKey];
+            let points = 0;
+            let units = 0;
+
+            semester.courses.forEach((course) => {
+                const grade = gradeMap[semKey]?.[course.code] || "";
+                if (!GRADE_MAP.hasOwnProperty(grade)) {
+                    return;
+                }
+                points += GRADE_MAP[grade] * course.cu;
+                units += course.cu;
+            });
+
+            return units === 0 ? 0 : points / units;
         }
-      });
-    });
-    return best;
-  }
 
-  function worstCourse() {
-    let worst = null;
-    SEM_ORDER.forEach((semKey) => {
-      CURRICULUM[semKey].courses.forEach((course) => {
-        const grade = state.grades[semKey]?.[course.code] || "";
-        if (!GRADE_MAP.hasOwnProperty(grade)) {
-          return;
+        function overallCGPA(gradeMap = state.grades) {
+            let points = 0;
+            let units = 0;
+
+            SEM_ORDER.forEach((semKey) => {
+                CURRICULUM[semKey].courses.forEach((course) => {
+                    const grade = gradeMap[semKey]?.[course.code] || "";
+                    if (!GRADE_MAP.hasOwnProperty(grade)) {
+                        return;
+                    }
+                    points += GRADE_MAP[grade] * course.cu;
+                    units += course.cu;
+                });
+            });
+
+            return units === 0 ? 0 : points / units;
         }
-        const score = GRADE_MAP[grade] * course.cu;
-        if (!worst || score < worst.score) {
-          worst = { semKey, course, grade, score };
+
+        function projectedCGPA() {
+            const projectedMap = deepClone(state.grades);
+            state.forecast.forEach((row) => {
+                if (!projectedMap[row.semKey]) {
+                    projectedMap[row.semKey] = {};
+                }
+                if (GRADE_MAP.hasOwnProperty(row.grade)) {
+                    projectedMap[row.semKey][row.courseCode] = row.grade;
+                }
+            });
+            return overallCGPA(projectedMap);
         }
-      });
-    });
-    return worst;
-  }
 
-  // ╔══════════════════════════════════════════╗
-  // ║  RENDER                                  ║
-  // ╚══════════════════════════════════════════╝
-  function renderAll() {
-    renderTopBar();
-    renderDashboard();
-    renderSemesterTable();
-    renderForecast();
-    renderInsights();
-    renderTimetable();
-    syncActiveNav();
-  }
+        function degreeClass(cgpa) {
+            if (cgpa >= DEGREE_THRESHOLDS.first) {
+                return "First Class";
+            }
+            if (cgpa >= DEGREE_THRESHOLDS.upper) {
+                return "Upper Second";
+            }
+            if (cgpa >= DEGREE_THRESHOLDS.lower) {
+                return "Lower Second";
+            }
+            return "Pass";
+        }
 
-  function renderTopBar() {
-    const greeting = document.getElementById("greeting-text");
-    const cgpaEl = document.getElementById("topbar-cgpa");
-    const classEl = document.getElementById("topbar-class");
-    const userIdEl = document.getElementById("sidebar-user-id");
-    if (!greeting || !cgpaEl || !classEl || !userIdEl) {
-      return;
-    }
+        function cgpaNeeded(targetCGPA, leftCU) {
+            const current = overallCGPA();
+            const currentUnits = completedCU();
+            if (!Number.isFinite(targetCGPA) || !Number.isFinite(leftCU) || leftCU <= 0) {
+                return null;
+            }
+            const currentPoints = current * currentUnits;
+            const targetPoints = targetCGPA * (currentUnits + leftCU);
+            return (targetPoints - currentPoints) / leftCU;
+        }
 
-    const h = new Date().getHours();
-    let prefix = "Good morning";
-    if (h >= 12 && h <= 17) {
-      prefix = "Good afternoon";
-    }
-    if (h > 17) {
-      prefix = "Good evening";
-    }
+        function semestersToTarget(targetCGPA) {
+            const current = overallCGPA();
+            const currentUnits = completedCU();
+            if (targetCGPA <= current) {
+                return 0;
+            }
+            let cumulativeFuture = 0;
+            const idx = SEM_ORDER.indexOf(state.currentSem);
+            for (let i = idx + 1; i < SEM_ORDER.length; i += 1) {
+                cumulativeFuture += semesterUnits(SEM_ORDER[i]);
+                const needed = cgpaNeeded(targetCGPA, cumulativeFuture);
+                if (needed !== null && needed <= 5.0) {
+                    return i - idx;
+                }
+            }
+            return Infinity;
+        }
 
-    const name = state.name || "Student";
-    greeting.textContent = `${prefix}, ${name} 👋`;
+        function draggingCourses() {
+            const rows = [];
+            SEM_ORDER.forEach((semKey) => {
+                CURRICULUM[semKey].courses.forEach((course) => {
+                    const grade = state.grades[semKey]?.[course.code] || "";
+                    if (!GRADE_MAP.hasOwnProperty(grade)) {
+                        return;
+                    }
+                    if (GRADE_MAP[grade] < 3.0) {
+                        const impact = (4.0 - GRADE_MAP[grade]) * course.cu;
+                        rows.push({
+                            semKey,
+                            course,
+                            grade,
+                            impact
+                        });
+                    }
+                });
+            });
+            return rows.sort((a, b) => b.course.cu - a.course.cu || b.impact - a.impact);
+        }
 
-    const cgpa = overallCGPA();
-    const currentClass = degreeClass(cgpa);
-    countUpAnimation(cgpaEl, cgpa);
-    cgpaEl.style.color = degreeClassColor(currentClass);
+        function bestCourse() {
+            let best = null;
+            SEM_ORDER.forEach((semKey) => {
+                CURRICULUM[semKey].courses.forEach((course) => {
+                    const grade = state.grades[semKey]?.[course.code] || "";
+                    if (!GRADE_MAP.hasOwnProperty(grade)) {
+                        return;
+                    }
+                    const score = GRADE_MAP[grade] * course.cu;
+                    if (!best || score > best.score) {
+                        best = { semKey, course, grade, score };
+                    }
+                });
+            });
+            return best;
+        }
 
-    classEl.textContent = currentClass;
-    classEl.className = `badge ${classBadgeClass(currentClass)}`;
-    userIdEl.textContent = `ID: ${state.userId}`;
-  }
+        function worstCourse() {
+            let worst = null;
+            SEM_ORDER.forEach((semKey) => {
+                CURRICULUM[semKey].courses.forEach((course) => {
+                    const grade = state.grades[semKey]?.[course.code] || "";
+                    if (!GRADE_MAP.hasOwnProperty(grade)) {
+                        return;
+                    }
+                    const score = GRADE_MAP[grade] * course.cu;
+                    if (!worst || score < worst.score) {
+                        worst = { semKey, course, grade, score };
+                    }
+                });
+            });
+            return worst;
+        }
 
-  function renderDashboard() {
-    if (RUNTIME.page !== "dashboard") {
-      return;
-    }
-    const page = document.getElementById("page-content");
-    if (!page) {
-      return;
-    }
+        // ╔══════════════════════════════════════════╗
+        // ║  RENDER                                  ║
+        // ╚══════════════════════════════════════════╝
+        function renderAll() {
+            renderTopBar();
+            renderDashboard();
+            renderSemesterTable();
+            renderForecast();
+            renderInsights();
+            renderTimetable();
+            syncActiveNav();
+        }
 
-    const cgpa = overallCGPA();
-    const dClass = degreeClass(cgpa);
-    const best = highestSemester();
-    const completed = completedCU();
-    const semLeft = SEM_ORDER.length - (SEM_ORDER.indexOf(state.currentSem) + 1);
-    const bannerText = dashboardBannerMessage(dClass, cgpa);
+        function renderTopBar() {
+            const greeting = document.getElementById("greeting-text");
+            const cgpaEl = document.getElementById("topbar-cgpa");
+            const classEl = document.getElementById("topbar-class");
+            const userIdEl = document.getElementById("sidebar-user-id");
+            if (!greeting || !cgpaEl || !classEl || !userIdEl) {
+                return;
+            }
 
-    const quickRows = CURRICULUM[state.currentSem].courses.map((course) => {
-      const value = state.grades[state.currentSem][course.code] || "";
-      return `
+            const h = new Date().getHours();
+            let prefix = "Good morning";
+            if (h >= 12 && h <= 17) {
+                prefix = "Good afternoon";
+            }
+            if (h > 17) {
+                prefix = "Good evening";
+            }
+
+            const name = state.name || "Student";
+            greeting.textContent = `${prefix}, ${name} 👋`;
+
+            const cgpa = overallCGPA();
+            const currentClass = degreeClass(cgpa);
+            countUpAnimation(cgpaEl, cgpa);
+            cgpaEl.style.color = degreeClassColor(currentClass);
+
+            classEl.textContent = currentClass;
+            classEl.className = `badge ${classBadgeClass(currentClass)}`;
+            userIdEl.textContent = `ID: ${state.userId}`;
+        }
+
+        function renderDashboard() {
+            if (RUNTIME.page !== "dashboard") {
+                return;
+            }
+            const page = document.getElementById("page-content");
+            if (!page) {
+                return;
+            }
+
+            const cgpa = overallCGPA();
+            const dClass = degreeClass(cgpa);
+            const best = highestSemester();
+            const completed = completedCU();
+            const semLeft = SEM_ORDER.length - (SEM_ORDER.indexOf(state.currentSem) + 1);
+            const bannerText = dashboardBannerMessage(dClass, cgpa);
+
+            const quickRows = CURRICULUM[state.currentSem].courses.map((course) => {
+                const value = state.grades[state.currentSem][course.code] || "";
+                return `
         <tr class="${value ? "completed" : "empty"}">
           <td><span class="code-pill">${course.code}</span></td>
           <td>${course.name}</td>
@@ -512,12 +512,12 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
           </td>
         </tr>
       `;
-    }).join("");
+            }).join("");
 
-    const allA = scenarioForSemester(state.currentSem, "A");
-    const allB = scenarioForSemester(state.currentSem, "B");
+            const allA = scenarioForSemester(state.currentSem, "A");
+            const allB = scenarioForSemester(state.currentSem, "B");
 
-    page.innerHTML = `
+            page.innerHTML = `
       <div class="stack">
         <section class="degree-banner ${degreeBannerClass(dClass)}">
           <h3>${dClass} · CGPA ${formatGPA(cgpa)}</h3>
@@ -557,24 +557,24 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
         </section>
       </div>
     `;
-  }
+        }
 
-  function renderSemesterTable() {
-    if (RUNTIME.page !== "grades") {
-      return;
-    }
-    const page = document.getElementById("page-content");
-    if (!page) {
-      return;
-    }
+        function renderSemesterTable() {
+            if (RUNTIME.page !== "grades") {
+                return;
+            }
+            const page = document.getElementById("page-content");
+            if (!page) {
+                return;
+            }
 
-    const currentIdx = SEM_ORDER.indexOf(state.currentSem);
-    const blocks = SEM_ORDER.map((semKey, idx) => {
-      const sem = CURRICULUM[semKey];
-      const editable = idx <= currentIdx;
+            const currentIdx = SEM_ORDER.indexOf(state.currentSem);
+            const blocks = SEM_ORDER.map((semKey, idx) => {
+                const sem = CURRICULUM[semKey];
+                const editable = idx <= currentIdx;
 
-      if (!editable) {
-        return `
+                if (!editable) {
+                    return `
           <section class="semester-block">
             <header class="semester-head">
               <h3>${sem.label}</h3>
@@ -585,12 +585,12 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             </div>
           </section>
         `;
-      }
+                }
 
-      const rows = sem.courses.map((course) => {
-        const grade = state.grades[semKey][course.code] || "";
-        const point = GRADE_MAP[grade] || 0;
-        return `
+                const rows = sem.courses.map((course) => {
+                    const grade = state.grades[semKey][course.code] || "";
+                    const point = GRADE_MAP[grade] || 0;
+                    return `
           <tr class="${grade ? "completed" : "empty"}">
             <td><span class="code-pill">${course.code}</span></td>
             <td>${course.name}</td>
@@ -603,10 +603,10 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             <td class="mono-number">${formatGPA(point * course.cu)}</td>
           </tr>
         `;
-      }).join("");
+                }).join("");
 
-      const semGpa = semesterGPA(semKey);
-      return `
+                const semGpa = semesterGPA(semKey);
+                return `
         <section class="semester-block">
           <header class="semester-head">
             <h3>${sem.label}</h3>
@@ -631,32 +631,32 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
           </div>
         </section>
       `;
-    }).join("");
+            }).join("");
 
-    page.innerHTML = `<div class="stack">${blocks}</div>`;
-  }
+            page.innerHTML = `<div class="stack">${blocks}</div>`;
+        }
 
-  function renderForecast() {
-    if (RUNTIME.page !== "forecast") {
-      return;
-    }
-    const page = document.getElementById("page-content");
-    if (!page) {
-      return;
-    }
+        function renderForecast() {
+            if (RUNTIME.page !== "forecast") {
+                return;
+            }
+            const page = document.getElementById("page-content");
+            if (!page) {
+                return;
+            }
 
-    const current = overallCGPA();
-    const projected = projectedCGPA();
-    const delta = projected - current;
+            const current = overallCGPA();
+            const projected = projectedCGPA();
+            const delta = projected - current;
 
-    const scenarioNudge = projected >= current
-      ? `On this path, you'll graduate ${degreeClass(projected)}.`
-      : `This pace puts your degree class at risk, ${state.name || "Student"}.`;
+            const scenarioNudge = projected >= current ?
+                `On this path, you'll graduate ${degreeClass(projected)}.` :
+                `This pace puts your degree class at risk, ${state.name || "Student"}.`;
 
-    const rows = state.forecast.map((row) => {
-      const courses = futureCoursesForSem(row.semKey);
-      const course = CURRICULUM[row.semKey].courses.find((c) => c.code === row.courseCode) || CURRICULUM[row.semKey].courses[0];
-      return `
+            const rows = state.forecast.map((row) => {
+                        const courses = futureCoursesForSem(row.semKey);
+                        const course = CURRICULUM[row.semKey].courses.find((c) => c.code === row.courseCode) || CURRICULUM[row.semKey].courses[0];
+                        return `
         <div class="card" data-forecast-id="${row.id}">
           <div class="field-grid">
             <div>
