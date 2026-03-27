@@ -15,6 +15,9 @@ let chart;
     };
     const GPA_SCALE = 5.0;
     const STORAGE_KEY = "cgpa_app_state_v1";
+    const modalState = {
+        active: null
+    };
 
     // === STATE ===
     state = {
@@ -467,8 +470,12 @@ let chart;
         const semesterContainer = document.getElementById("semesters-container");
 
         if (addSemesterButton) {
-            addSemesterButton.addEventListener("click", () => {
-                const name = window.prompt("Semester name:", `Semester ${state.semesters.length + 1}`);
+            addSemesterButton.addEventListener("click", async() => {
+                const name = await promptTextDialog(
+                    "Add Semester",
+                    "Semester name",
+                    `Semester ${state.semesters.length + 1}`
+                );
                 if (name === null) {
                     return;
                 }
@@ -492,7 +499,7 @@ let chart;
             return;
         }
 
-        semesterContainer.addEventListener("click", (event) => {
+        semesterContainer.addEventListener("click", async(event) => {
             const target = event.target;
             if (!(target instanceof HTMLElement)) {
                 return;
@@ -504,7 +511,7 @@ let chart;
                 if (!semId) {
                     return;
                 }
-                if (!confirmDialog("Delete this semester and all its courses?")) {
+                if (!(await confirmDialog("Delete this semester and all its courses?", "Delete Semester"))) {
                     return;
                 }
                 state.semesters = state.semesters.filter((semester) => semester.id !== semId);
@@ -518,7 +525,7 @@ let chart;
                 if (!semId) {
                     return;
                 }
-                const courseName = window.prompt("Course name:", "New Course");
+                const courseName = await promptTextDialog("Add Course", "Course name", "New Course");
                 if (courseName === null) {
                     return;
                 }
@@ -526,7 +533,7 @@ let chart;
                     showToast("Course name cannot be blank.", "error");
                     return;
                 }
-                const courseUnits = promptForUnits(3);
+                const courseUnits = await promptForUnits(3);
                 if (courseUnits === null) {
                     return;
                 }
@@ -627,8 +634,8 @@ let chart;
         const unitsInput = document.getElementById("target-units-per-semester");
 
         if (addForecastButton) {
-            addForecastButton.addEventListener("click", () => {
-                const name = window.prompt("Future course name:", "Future Course");
+            addForecastButton.addEventListener("click", async() => {
+                const name = await promptTextDialog("Add Future Course", "Future course name", "Future Course");
                 if (name === null) {
                     return;
                 }
@@ -636,7 +643,7 @@ let chart;
                     showToast("Course name cannot be blank.", "error");
                     return;
                 }
-                const courseUnits = promptForUnits(3);
+                const courseUnits = await promptForUnits(3);
                 if (courseUnits === null) {
                     return;
                 }
@@ -784,8 +791,8 @@ let chart;
         const importInput = document.getElementById("import-input");
 
         if (resetButton) {
-            resetButton.addEventListener("click", () => {
-                if (!confirmDialog("This will erase all semesters and forecasts. Continue?")) {
+            resetButton.addEventListener("click", async() => {
+                if (!(await confirmDialog("This will erase all semesters and forecasts. Continue?", "Reset All Data"))) {
                     return;
                 }
                 localStorage.removeItem(STORAGE_KEY);
@@ -963,12 +970,41 @@ let chart;
         URL.revokeObjectURL(url);
     }
 
-    function confirmDialog(message) {
-        return window.confirm(message);
+    function confirmDialog(message, title = "Confirm Action") {
+        return showModalDialog({
+            title,
+            message,
+            confirmText: "Confirm",
+            cancelText: "Cancel",
+            inputType: null
+        });
     }
 
-    function promptForUnits(defaultValue) {
-        const raw = window.prompt("Credit units (1-6):", String(defaultValue));
+    function promptTextDialog(title, label, defaultValue = "") {
+        return showModalDialog({
+            title,
+            message: label,
+            confirmText: "Save",
+            cancelText: "Cancel",
+            inputType: "text",
+            inputValue: defaultValue,
+            inputPlaceholder: label
+        });
+    }
+
+    async function promptForUnits(defaultValue) {
+        const raw = await showModalDialog({
+            title: "Course Units",
+            message: "Credit units (1-6)",
+            confirmText: "Save",
+            cancelText: "Cancel",
+            inputType: "number",
+            inputValue: String(defaultValue),
+            inputPlaceholder: "3",
+            inputMin: "1",
+            inputMax: "6",
+            inputStep: "1"
+        });
         if (raw === null) {
             return null;
         }
@@ -978,6 +1014,135 @@ let chart;
             return null;
         }
         return units;
+    }
+
+    function showModalDialog(options) {
+        if (modalState.active && modalState.active.parentElement) {
+            modalState.active.remove();
+            modalState.active = null;
+        }
+
+        const config = {
+            title: options.title || "Dialog",
+            message: options.message || "",
+            confirmText: options.confirmText || "OK",
+            cancelText: options.cancelText || "Cancel",
+            inputType: options.inputType || null,
+            inputValue: options.inputValue || "",
+            inputPlaceholder: options.inputPlaceholder || "",
+            inputMin: options.inputMin,
+            inputMax: options.inputMax,
+            inputStep: options.inputStep
+        };
+
+        return new Promise((resolve) => {
+            const activeElement = document.activeElement;
+            const overlay = document.createElement("div");
+            overlay.className = "modal-overlay";
+
+            const dialog = document.createElement("div");
+            dialog.className = "modal";
+            dialog.setAttribute("role", "dialog");
+            dialog.setAttribute("aria-modal", "true");
+
+            const title = document.createElement("h3");
+            title.className = "modal__title";
+            title.textContent = config.title;
+
+            const message = document.createElement("p");
+            message.className = "modal__message";
+            message.textContent = config.message;
+
+            const actions = document.createElement("div");
+            actions.className = "modal__actions";
+
+            const cancelButton = document.createElement("button");
+            cancelButton.type = "button";
+            cancelButton.className = "btn btn--ghost modal__btn";
+            cancelButton.textContent = config.cancelText;
+
+            const confirmButton = document.createElement("button");
+            confirmButton.type = "button";
+            confirmButton.className = "btn btn--accent modal__btn";
+            confirmButton.textContent = config.confirmText;
+
+            let input = null;
+            if (config.inputType) {
+                input = document.createElement("input");
+                input.className = "modal__input";
+                input.type = config.inputType;
+                input.value = config.inputValue;
+                input.placeholder = config.inputPlaceholder;
+                if (config.inputMin !== undefined) {
+                    input.min = config.inputMin;
+                }
+                if (config.inputMax !== undefined) {
+                    input.max = config.inputMax;
+                }
+                if (config.inputStep !== undefined) {
+                    input.step = config.inputStep;
+                }
+                dialog.appendChild(input);
+            }
+
+            actions.append(cancelButton, confirmButton);
+            dialog.append(title, message, actions);
+            if (input) {
+                dialog.insertBefore(input, actions);
+            }
+            overlay.appendChild(dialog);
+            document.body.appendChild(overlay);
+            modalState.active = overlay;
+            document.body.classList.add("modal-open");
+
+            const finish = (result) => {
+                document.removeEventListener("keydown", onKeyDown);
+                overlay.remove();
+                modalState.active = null;
+                document.body.classList.remove("modal-open");
+                if (activeElement instanceof HTMLElement) {
+                    activeElement.focus();
+                }
+                resolve(result);
+            };
+
+            const onKeyDown = (event) => {
+                if (event.key === "Escape") {
+                    finish(null);
+                }
+                if (event.key === "Enter") {
+                    if (input) {
+                        finish(input.value);
+                    } else {
+                        finish(true);
+                    }
+                }
+            };
+
+            document.addEventListener("keydown", onKeyDown);
+
+            overlay.addEventListener("click", (event) => {
+                if (event.target === overlay) {
+                    finish(null);
+                }
+            });
+
+            cancelButton.addEventListener("click", () => finish(null));
+            confirmButton.addEventListener("click", () => {
+                if (input) {
+                    finish(input.value);
+                    return;
+                }
+                finish(true);
+            });
+
+            if (input) {
+                input.focus();
+                input.select();
+            } else {
+                confirmButton.focus();
+            }
+        });
     }
 
     function createId(type) {

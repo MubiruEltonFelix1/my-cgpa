@@ -530,6 +530,70 @@ select {
 }
 
 
+/* === MODAL DIALOG === */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: grid;
+    place-items: center;
+    background: rgba(15, 23, 42, 0.62);
+    padding: 1rem;
+}
+
+.modal {
+    width: min(420px, 100%);
+    background: var(--card);
+    color: var(--text-primary);
+    border-radius: var(--radius);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    padding: var(--space-4);
+    display: grid;
+    gap: var(--space-2);
+    animation: panelFade 0.2s ease;
+}
+
+.modal__title {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.modal__message {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.modal__input {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 0.6rem 0.65rem;
+    background: #fff;
+    color: var(--text-primary);
+}
+
+.modal__input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-1);
+    margin-top: var(--space-1);
+}
+
+.modal__btn {
+    min-width: 88px;
+}
+
+
 /* === CHARTS SECTION === */
 
 .chart-wrap {
