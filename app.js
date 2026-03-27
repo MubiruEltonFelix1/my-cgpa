@@ -1739,7 +1739,11 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             <input id="onboard-pin-confirm" type="password" maxlength="4" inputmode="numeric">
             <p>Your anonymous ID: ${tempUserId}</p>
             <p>${phrase}</p>
-            <label><input id="onboard-phrase-check" type="checkbox"> I've saved my recovery phrase</label>
+            <label class="onboard-check-row" for="onboard-phrase-check">
+              <input id="onboard-phrase-check" class="onboard-check-input" type="checkbox">
+              <span>I've saved my recovery phrase</span>
+            </label>
+            <p>To continue, you must check the white box above.</p>
             <div class="mt-12"><button id="onboard-start" class="btn btn-primary" data-step="finish" disabled>Get started →</button></div>
           </div>
         `;
