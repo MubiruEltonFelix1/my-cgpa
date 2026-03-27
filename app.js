@@ -61,7 +61,7 @@ let chart;
 
     // === CALCULATIONS ===
     function gradeToPoints(grade) {
-        return GRADE_POINTS[grade] ?? 0;
+        return Object.prototype.hasOwnProperty.call(GRADE_POINTS, grade) ? GRADE_POINTS[grade] : 0;
     }
 
     function semesterGPA(semester) {
@@ -1298,7 +1298,7 @@ let chart;
 
     function escapeHtml(value) {
         const div = document.createElement("div");
-        div.textContent = String(value ?? "");
+        div.textContent = String(value == null ? "" : value);
         return div.innerHTML;
     }
 
