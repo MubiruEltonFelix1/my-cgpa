@@ -298,7 +298,8 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             let units = 0;
 
             semester.courses.forEach((course) => {
-                const grade = gradeMap[semKey]?.[course.code] || "";
+                const semGrades = gradeMap[semKey];
+                const grade = semGrades && semGrades[course.code] ? semGrades[course.code] : "";
                 if (!GRADE_MAP.hasOwnProperty(grade)) {
                     return;
                 }
@@ -315,7 +316,8 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
 
             SEM_ORDER.forEach((semKey) => {
                 CURRICULUM[semKey].courses.forEach((course) => {
-                    const grade = gradeMap[semKey]?.[course.code] || "";
+                    const semGrades = gradeMap[semKey];
+                    const grade = semGrades && semGrades[course.code] ? semGrades[course.code] : "";
                     if (!GRADE_MAP.hasOwnProperty(grade)) {
                         return;
                     }
@@ -386,7 +388,8 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             const rows = [];
             SEM_ORDER.forEach((semKey) => {
                 CURRICULUM[semKey].courses.forEach((course) => {
-                    const grade = state.grades[semKey]?.[course.code] || "";
+                    const semGrades = state.grades[semKey];
+                    const grade = semGrades && semGrades[course.code] ? semGrades[course.code] : "";
                     if (!GRADE_MAP.hasOwnProperty(grade)) {
                         return;
                     }
@@ -408,7 +411,8 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             let best = null;
             SEM_ORDER.forEach((semKey) => {
                 CURRICULUM[semKey].courses.forEach((course) => {
-                    const grade = state.grades[semKey]?.[course.code] || "";
+                    const semGrades = state.grades[semKey];
+                    const grade = semGrades && semGrades[course.code] ? semGrades[course.code] : "";
                     if (!GRADE_MAP.hasOwnProperty(grade)) {
                         return;
                     }
@@ -425,7 +429,8 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             let worst = null;
             SEM_ORDER.forEach((semKey) => {
                 CURRICULUM[semKey].courses.forEach((course) => {
-                    const grade = state.grades[semKey]?.[course.code] || "";
+                    const semGrades = state.grades[semKey];
+                    const grade = semGrades && semGrades[course.code] ? semGrades[course.code] : "";
                     if (!GRADE_MAP.hasOwnProperty(grade)) {
                         return;
                     }
@@ -1489,7 +1494,10 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
   }
 
   function futureCoursesForSem(semKey) {
-    return CURRICULUM[semKey]?.courses || [];
+    if (!CURRICULUM[semKey]) {
+      return [];
+    }
+    return CURRICULUM[semKey].courses || [];
   }
 
   function futureSemOptions(selected) {
