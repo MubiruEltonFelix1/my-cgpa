@@ -1,101 +1,226 @@
 let state;
 let chart;
 
-const CURRICULUM = {
-    "Y1S1": {
+const SEMESTER_ORDER_STANDARD = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2"];
+
+const PROGRAMS = {
+  softwareEngineering: {
+    key: "softwareEngineering",
+    displayName: "Bachelor of Science in Software Engineering",
+    shortName: "Software Engineering",
+    semOrder: SEMESTER_ORDER_STANDARD,
+    curriculum: {
+      Y1S1: {
         label: "Year 1 · Semester 1",
         courses: [
-            { code: "SWE1103", name: "Linear Algebra", cu: 3 },
-            { code: "DVS1106", name: "Introduction to Political Economy", cu: 3 },
-            { code: "SWE1101", name: "Discrete Mathematics", cu: 3 },
-            { code: "SWE1102", name: "Structured Programming with C", cu: 4 },
-            { code: "SWE1104", name: "Software Development Principles", cu: 4 },
-            { code: "SWE1105", name: "Communication Skills", cu: 3 }
+          { code: "SWE1103", name: "Linear Algebra", cu: 3 },
+          { code: "DVS1106", name: "Introduction to Political Economy", cu: 3 },
+          { code: "SWE1101", name: "Discrete Mathematics", cu: 3 },
+          { code: "SWE1102", name: "Structured Programming with C", cu: 4 },
+          { code: "SWE1104", name: "Software Development Principles", cu: 4 },
+          { code: "SWE1105", name: "Communication Skills", cu: 3 }
         ]
-    },
-    "Y1S2": {
+      },
+      Y1S2: {
         label: "Year 1 · Semester 2",
         courses: [
-            { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
-            { code: "SWE1201", name: "Object Oriented Programming I", cu: 4 },
-            { code: "SWE1202", name: "Multivariate Calculus", cu: 4 },
-            { code: "SWE1203", name: "Operating Systems", cu: 4 },
-            { code: "SWE1204", name: "Software Systems Engineering Practice", cu: 3 },
-            { code: "SWE1205", name: "Database Programming", cu: 4 },
-            { code: "SWE1206", name: "Computer Architecture and Organization", cu: 3 }
+          { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
+          { code: "SWE1201", name: "Object Oriented Programming I", cu: 4 },
+          { code: "SWE1202", name: "Multivariate Calculus", cu: 4 },
+          { code: "SWE1203", name: "Operating Systems", cu: 4 },
+          { code: "SWE1204", name: "Software Systems Engineering Practice", cu: 3 },
+          { code: "SWE1205", name: "Database Programming", cu: 4 },
+          { code: "SWE1206", name: "Computer Architecture and Organization", cu: 3 }
         ]
-    },
-    "Y2S1": {
+      },
+      Y2S1: {
         label: "Year 2 · Semester 1",
         courses: [
-            { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
-            { code: "SWE2101", name: "Object Oriented Programming II", cu: 4 },
-            { code: "SWE2102", name: "Requirements Engineering", cu: 3 },
-            { code: "SWE2103", name: "Probability and Statistics", cu: 4 },
-            { code: "SWE2104", name: "Data Structures and Algorithms", cu: 3 },
-            { code: "SWE2105", name: "Geographic Information Systems", cu: 4 },
-            { code: "SWE2106", name: "Internet Technology and Web Design", cu: 4 },
-            { code: "SWE2107", name: "Systems Analysis and Design", cu: 4 }
+          { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
+          { code: "SWE2101", name: "Object Oriented Programming II", cu: 4 },
+          { code: "SWE2102", name: "Requirements Engineering", cu: 3 },
+          { code: "SWE2103", name: "Probability and Statistics", cu: 4 },
+          { code: "SWE2104", name: "Data Structures and Algorithms", cu: 3 },
+          { code: "SWE2105", name: "Geographic Information Systems", cu: 4 },
+          { code: "SWE2106", name: "Internet Technology and Web Design", cu: 4 },
+          { code: "SWE2107", name: "Systems Analysis and Design", cu: 4 }
         ]
-    },
-    "Y2S2": {
+      },
+      Y2S2: {
         label: "Year 2 · Semester 2",
         courses: [
-            { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
-            { code: "SWE2201", name: "Numerical Analysis", cu: 3 },
-            { code: "SWE2202", name: "Data Communication Technology", cu: 4 },
-            { code: "SWE2203", name: "Software Architecture and Design", cu: 3 },
-            { code: "SWE2204", name: "Software Metrics", cu: 3 },
-            { code: "SWE2205", name: "User Interface Design and Development", cu: 4 },
-            { code: "SWE2206", name: "Distributed Computing", cu: 4 }
+          { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
+          { code: "SWE2201", name: "Numerical Analysis", cu: 3 },
+          { code: "SWE2202", name: "Data Communication Technology", cu: 4 },
+          { code: "SWE2203", name: "Software Architecture and Design", cu: 3 },
+          { code: "SWE2204", name: "Software Metrics", cu: 3 },
+          { code: "SWE2205", name: "User Interface Design and Development", cu: 4 },
+          { code: "SWE2206", name: "Distributed Computing", cu: 4 }
         ]
-    },
-    "Y3S1": {
+      },
+      Y3S1: {
         label: "Year 3 · Semester 1",
         courses: [
-            { code: "SWE3101", name: "Human Computer Interaction", cu: 4 },
-            { code: "SWE3102", name: "Software Reliability and Testing", cu: 4 },
-            { code: "SWE3103", name: "Software Project Management", cu: 4 },
-            { code: "SWE3104", name: "Modelling and Simulation", cu: 4 },
-            { code: "SWE3105", name: "Research Methods in Computing", cu: 4 },
-            { code: "SWE3106", name: "Mobile Networks and Computing", cu: 4 }
+          { code: "SWE3101", name: "Human Computer Interaction", cu: 4 },
+          { code: "SWE3102", name: "Software Reliability and Testing", cu: 4 },
+          { code: "SWE3103", name: "Software Project Management", cu: 4 },
+          { code: "SWE3104", name: "Modelling and Simulation", cu: 4 },
+          { code: "SWE3105", name: "Research Methods in Computing", cu: 4 },
+          { code: "SWE3106", name: "Mobile Networks and Computing", cu: 4 }
         ]
-    },
-    "Y3S2": {
+      },
+      Y3S2: {
         label: "Year 3 · Semester 2",
         courses: [
-            { code: "SWE3201", name: "Embedded Systems Software", cu: 4 },
-            { code: "SWE3202", name: "Mobile Computing and Applications", cu: 4 },
-            { code: "SWE3203", name: "Third Year Research Project", cu: 4 },
-            { code: "SWE3204", name: "Data Mining", cu: 3 },
-            { code: "SWE3205", name: "Compiler Construction", cu: 4 },
-            { code: "SWE3206", name: "Systems Programming - Linux", cu: 4 }
+          { code: "SWE3201", name: "Embedded Systems Software", cu: 4 },
+          { code: "SWE3202", name: "Mobile Computing and Applications", cu: 4 },
+          { code: "SWE3203", name: "Third Year Research Project", cu: 4 },
+          { code: "SWE3204", name: "Data Mining", cu: 3 },
+          { code: "SWE3205", name: "Compiler Construction", cu: 4 },
+          { code: "SWE3206", name: "Systems Programming - Linux", cu: 4 }
         ]
-    },
-    "Y4S1": {
+      },
+      Y4S1: {
         label: "Year 4 · Semester 1",
         courses: [
-            { code: "SWE4103", name: "Formal Methods", cu: 3 },
-            { code: "SWE4101", name: "Digital System Design", cu: 4 },
-            { code: "SWE4102", name: "Computer Graphics Engineering", cu: 4 },
-            { code: "SWE4104", name: "Software Design Patterns", cu: 4 },
-            { code: "SWE4105", name: "Artificial Intelligence", cu: 4 },
-            { code: "SWE4106", name: "Ethical and Professional Issues in Computing", cu: 4 }
+          { code: "SWE4103", name: "Formal Methods", cu: 3 },
+          { code: "SWE4101", name: "Digital System Design", cu: 4 },
+          { code: "SWE4102", name: "Computer Graphics Engineering", cu: 4 },
+          { code: "SWE4104", name: "Software Design Patterns", cu: 4 },
+          { code: "SWE4105", name: "Artificial Intelligence", cu: 4 },
+          { code: "SWE4106", name: "Ethical and Professional Issues in Computing", cu: 4 }
         ]
-    },
-    "Y4S2": {
+      },
+      Y4S2: {
         label: "Year 4 · Semester 2",
         courses: [
-            { code: "SWE4201", name: "Machine Learning", cu: 4 },
-            { code: "SWE4202", name: "Software Maintenance and Evolution", cu: 4 },
-            { code: "SWE4203", name: "Entrepreneurship", cu: 3 },
-            { code: "SWE4204", name: "Software Security", cu: 4 },
-            { code: "SWE4205", name: "Final Year Project", cu: 5 }
+          { code: "SWE4201", name: "Machine Learning", cu: 4 },
+          { code: "SWE4202", name: "Software Maintenance and Evolution", cu: 4 },
+          { code: "SWE4203", name: "Entrepreneurship", cu: 3 },
+          { code: "SWE4204", name: "Software Security", cu: 4 },
+          { code: "SWE4205", name: "Final Year Project", cu: 5 }
         ]
+      }
     }
+  },
+  agriculture: {
+    key: "agriculture",
+    displayName: "Bachelor of Science in Agriculture and Livelihood",
+    shortName: "Agriculture and Livelihood",
+    semOrder: SEMESTER_ORDER_STANDARD,
+    curriculum: {
+      Y1S1: {
+        label: "Year 1 · Semester 1",
+        courses: [
+          { code: "DVS1106", name: "Fundamentals to Political Economy", cu: 3 },
+          { code: "BPCD1102", name: "Fundamentals of Interdisciplinary Studies", cu: 3 },
+          { code: "CSC1101", name: "Applied Computer Skills", cu: 3 },
+          { code: "BSAL1101", name: "Livelihoods Approaches for Agricultural Transformation", cu: 4 },
+          { code: "BSAL1102", name: "Agricultural Botany and Plant Physiology", cu: 4 },
+          { code: "BSAL1104", name: "Crop Production Systems", cu: 3 },
+          { code: "BSAL1105", name: "Livestock Production Systems", cu: 3 },
+          { code: "BSAL1106", name: "Fundamentals of Animal Anatomy and Physiology", cu: 3 },
+          { code: "BPCD1107", name: "Communication and Facilitation Skills", cu: 3 }
+        ]
+      },
+      Y1S2: {
+        label: "Year 1 · Semester 2",
+        courses: [
+          { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
+          { code: "BPCD1209", name: "Methodology, Conceptualization and Theoretical Analysis", cu: 3 },
+          { code: "BSAL1212", name: "Fundamentals of Food Science and Technology", cu: 3 },
+          { code: "BSAL1206", name: "Principles of Soil Science", cu: 4 },
+          { code: "BSAL1207", name: "Annual and Perennial Crop Agronomy", cu: 4 },
+          { code: "BSAL1208", name: "Apiculture and Aquaculture", cu: 3 },
+          { code: "BSAL1209", name: "Poultry and Pig Production", cu: 3 },
+          { code: "BSAL1210", name: "Agroforestry", cu: 4 },
+          { code: "BSAL1211", name: "Dairy and Beef Production", cu: 3 }
+        ]
+      },
+      Y2S1: {
+        label: "Year 2 · Semester 1",
+        courses: [
+          { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
+          { code: "BSAL2101", name: "Farm Planning, Systems and Structures", cu: 3 },
+          { code: "BSAL2102", name: "Pasture Production and Rangeland Management", cu: 4 },
+          { code: "BSAL2103", name: "Animal Health and Disease", cu: 3 },
+          { code: "BSAL2104", name: "Entomology and Nematology", cu: 3 },
+          { code: "BSAL2105", name: "Agricultural Production Economics", cu: 3 },
+          { code: "RMC2101", name: "Qualitative Research", cu: 3 },
+          { code: "BSAL2106", name: "Animal Nutrition and Feed Technology", cu: 4 }
+        ]
+      },
+      Y2S2: {
+        label: "Year 2 · Semester 2",
+        courses: [
+          { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
+          { code: "BSAL2208", name: "Food Systems and Security", cu: 3 },
+          { code: "BSAL2209", name: "Agriculture Extension and Rural Development", cu: 4 },
+          { code: "BSAL2210", name: "Soil Conservation Technologies", cu: 3 },
+          { code: "BSAL2214", name: "Agro Meteorology", cu: 4 },
+          { code: "BSAL2212", name: "Plant Nutrition and Soil Fertility Management", cu: 3 },
+          { code: "BPCD2212", name: "Remote Sensing and Geographical Information Systems", cu: 3 },
+          { code: "BSAL2213", name: "Plant Pathology", cu: 4 },
+          { code: "BSAL2215", name: "Microbiology", cu: 3 }
+        ]
+      },
+      Y3S1: {
+        label: "Year 3 · Semester 1",
+        courses: [
+          { code: "BSAL3103", name: "Small Ruminants", cu: 3 },
+          { code: "BSAL3104", name: "Agricultural Project Planning and Management", cu: 3 },
+          { code: "BSAL3106", name: "Farm Mechanisation", cu: 4 },
+          { code: "BSAL3110", name: "Food Processing and Preservation", cu: 4 },
+          { code: "BSAL3109", name: "Statistics for Agricultural Research", cu: 3 },
+          { code: "BSAL3108", name: "Land Tenure, Use and Planning", cu: 3 },
+          { code: "STP3101", name: "Students' Community Twinning Project", cu: 3 }
+        ]
+      },
+      Y3S2: {
+        label: "Year 3 · Semester 2",
+        courses: [
+          { code: "BSAL3105", name: "Farmer Institutional Structures and Development", cu: 3 },
+          { code: "BSAL3210", name: "Appraisal of Agricultural Development Projects", cu: 4 },
+          { code: "BSAL3211", name: "Irrigation and Farm Water Use Technologies", cu: 3 },
+          { code: "BSAL3212", name: "Post-Harvest Handling and Value Addition", cu: 3 },
+          { code: "BSAL3213", name: "Seed Technology", cu: 4 },
+          { code: "BSAL3214", name: "Climate Change and Farm Production", cu: 4 },
+          { code: "BSAL3215", name: "Agricultural Experimental Design", cu: 3 },
+          { code: "STP3202", name: "Students' Community Twinning Project", cu: 3 },
+          { code: "IPR3301", name: "Interdisciplinary Practicum (Internship)", cu: 5 }
+        ]
+      },
+      Y4S1: {
+        label: "Year 4 · Semester 1",
+        courses: [
+          { code: "BSAL4118", name: "Entrepreneurship, Farm Enterprise Development and Innovation Systems", cu: 3 },
+          { code: "BSAL4115", name: "Agricultural Marketing and Cooperatives", cu: 4 },
+          { code: "BSAL4113", name: "Animal Breeding", cu: 4 },
+          { code: "BSAL4114", name: "Agricultural Vulnerability and Resilience", cu: 4 },
+          { code: "BSAL4116", name: "Plant Breeding and Biotechnology", cu: 4 },
+          { code: "BSAL4117", name: "Milk and Meat Technology", cu: 3 },
+          { code: "BSAL4119", name: "Animal Parasitology", cu: 3 }
+        ]
+      },
+      Y4S2: {
+        label: "Year 4 · Semester 2",
+        courses: [
+          { code: "BSAL4207", name: "Commodity Value Chain Analysis", cu: 4 },
+          { code: "BSAL4208", name: "Gender and Agriculture Development", cu: 4 },
+          { code: "BSAL4209", name: "Poverty Analysis Tools and Techniques", cu: 4 },
+          { code: "BSAL4210", name: "Farm Business, Accounting and Finance", cu: 4 },
+          { code: "BSAL4213", name: "Agricultural Policy, Ethics and Law", cu: 4 },
+          { code: "BSAL4212", name: "Research Project (Final Dissertation)", cu: 5 }
+        ]
+      }
+    }
+  }
 };
 
-const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2"];
+const DEFAULT_PROGRAM = "softwareEngineering";
+
+let CURRICULUM = PROGRAMS[DEFAULT_PROGRAM].curriculum;
+let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
 
 (() => {
         // ╔══════════════════════════════════════════╗
@@ -140,6 +265,7 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
         };
 
         const TIMETABLE_IMAGES = {
+          softwareEngineering: {
             Y1S1: "timetables/y1s1.jpg",
             Y1S2: "timetables/timetable_year1_sem2.png",
             Y2S1: "timetables/y2s1.jpg",
@@ -148,6 +274,8 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             Y3S2: "timetables/timetable_year3_sem2.png",
             Y4S1: "timetables/y4s1.jpg",
             Y4S2: "timetables/timetable_year4_sem2.png"
+          },
+          agriculture: {}
         };
 
         const ADJECTIVES = [
@@ -200,30 +328,52 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             insightLeftCU: ""
         };
 
+          function resolveProgramKey(programKey) {
+            return PROGRAMS[programKey] ? programKey : DEFAULT_PROGRAM;
+          }
+
+          function getActiveProgram() {
+            return PROGRAMS[resolveProgramKey(state && state.program)];
+          }
+
+          function syncProgramContext(programKey) {
+            const resolved = resolveProgramKey(programKey);
+            CURRICULUM = PROGRAMS[resolved].curriculum;
+            SEM_ORDER = PROGRAMS[resolved].semOrder;
+            if (state) {
+              state.program = resolved;
+            }
+            applyProgramBranding();
+          }
+
         // ╔══════════════════════════════════════════╗
         // ║  STATE                                   ║
         // ╚══════════════════════════════════════════╝
-        function buildEmptyGrades() {
+        function buildEmptyGrades(programKey = DEFAULT_PROGRAM) {
+          const resolved = resolveProgramKey(programKey);
+          const program = PROGRAMS[resolved];
             const grades = {};
-            SEM_ORDER.forEach((semKey) => {
+          program.semOrder.forEach((semKey) => {
                 grades[semKey] = {};
-                CURRICULUM[semKey].courses.forEach((course) => {
+            program.curriculum[semKey].courses.forEach((course) => {
                     grades[semKey][course.code] = "";
                 });
             });
             return grades;
         }
 
-        function defaultState() {
+        function defaultState(programKey = DEFAULT_PROGRAM) {
+          const resolved = resolveProgramKey(programKey);
             const userId = getOrCreateUserId();
             return {
+            program: resolved,
                 name: "",
-                currentSem: "Y1S1",
+            currentSem: PROGRAMS[resolved].semOrder[0],
                 pin: null,
                 userId,
                 recoveryHash: null,
                 recoveryPhrase: "",
-                grades: buildEmptyGrades(),
+            grades: buildEmptyGrades(resolved),
                 forecast: []
             };
         }
@@ -232,21 +382,28 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             try {
                 const raw = localStorage.getItem(STORAGE_KEYS.state);
                 if (!raw) {
-                    state = defaultState();
+              state = defaultState();
+              syncProgramContext(state.program);
                     return;
                 }
                 const parsed = JSON.parse(raw);
-                const safe = defaultState();
+            const programKey = resolveProgramKey(parsed.program);
+            const safe = defaultState(programKey);
+            syncProgramContext(programKey);
 
                 state = {
                     ...safe,
                     ...parsed,
+              program: programKey,
                     grades: {
                         ...safe.grades,
                         ...(parsed.grades || {})
                     },
-                    forecast: Array.isArray(parsed.forecast) ? parsed.forecast : []
+              forecast: Array.isArray(parsed.forecast) ? parsed.forecast : []
                 };
+
+            state.currentSem = SEM_ORDER.includes(state.currentSem) ? state.currentSem : SEM_ORDER[0];
+                RUNTIME.timetableSem = state.currentSem;
 
                 // Normalize grades to allowed values only.
                 SEM_ORDER.forEach((semKey) => {
@@ -255,6 +412,23 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
                         state.grades[semKey][course.code] = GRADE_LIST.includes(value) ? value : "";
                     });
                 });
+
+            state.forecast = state.forecast
+              .filter((row) => {
+                if (!row || !SEM_ORDER.includes(row.semKey)) {
+                  return false;
+                }
+                if (!GRADE_MAP.hasOwnProperty(row.grade)) {
+                  return false;
+                }
+                return CURRICULUM[row.semKey].courses.some((course) => course.code === row.courseCode);
+              })
+              .map((row) => ({
+                id: row.id || `forecast_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+                semKey: row.semKey,
+                courseCode: row.courseCode,
+                grade: row.grade
+              }));
 
                 if (!state.userId) {
                     state.userId = getOrCreateUserId();
@@ -464,6 +638,8 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
             if (!greeting || !cgpaEl || !classEl || !userIdEl) {
                 return;
             }
+
+          applyProgramBranding();
 
             const h = new Date().getHours();
             let prefix = "Good morning";
@@ -858,7 +1034,8 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
 
     const key = RUNTIME.timetableSem;
     const isSem1 = key.endsWith("S1");
-    const imgPath = TIMETABLE_IMAGES[key] || `timetables/${key.toLowerCase()}.jpg`;
+    const programImages = TIMETABLE_IMAGES[state.program] || {};
+    const imgPath = programImages[key] || "";
 
     page.innerHTML = `
       <div class="stack">
@@ -871,7 +1048,7 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
         </section>
 
         <section class="card timetable-wrap">
-          <img id="timetable-image" class="timetable-image" src="${imgPath}" alt="${CURRICULUM[key].label} Timetable">
+          <img id="timetable-image" class="timetable-image ${imgPath ? "" : "hidden"}" src="${imgPath}" alt="${CURRICULUM[key].label} Timetable">
           <div id="timetable-fallback" class="timetable-placeholder hidden">
             <h4 class="text-primary">Timetable image not available yet. Check back after upload.</h4>
             <p>Upload icon placeholder</p>
@@ -885,6 +1062,13 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
     const img = document.getElementById("timetable-image");
     const fallback = document.getElementById("timetable-fallback");
     if (img && fallback) {
+      if (!imgPath) {
+        const heading = fallback.querySelector("h4");
+        if (heading) {
+          heading.textContent = "Timetable image not available yet. Check back after upload.";
+        }
+        fallback.classList.remove("hidden");
+      }
       img.addEventListener("error", () => {
         img.classList.add("hidden");
         const heading = fallback.querySelector("h4");
@@ -912,6 +1096,12 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
         <section class="card">
           <h3 class="section-title">Profile</h3>
           <div class="field-grid">
+            <div>
+              <label>Program</label>
+              <select id="settings-program">
+                ${Object.values(PROGRAMS).map((program) => `<option value="${program.key}" ${program.key === state.program ? "selected" : ""}>${program.displayName}</option>`).join("")}
+              </select>
+            </div>
             <div>
               <label>Name</label>
               <input id="settings-name" value="${escapeHtml(state.name)}" maxlength="30">
@@ -968,7 +1158,7 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
 
         <section class="card">
           <h3 class="section-title">About</h3>
-          <p>BSc SE Grade Tracker v1.0 · Built for Mbarara University by Mubiru Elton Felix · Data stored locally on your device · No account required</p>
+          <p>Grade Tracker v1.1 · Program: ${getActiveProgram().displayName} · Built for Mbarara University by Mubiru Elton Felix · Data stored locally on your device · No account required</p>
           <p><a href="#" class="link-blue">GitHub link placeholder</a></p>
         </section>
       </div>
@@ -1157,18 +1347,43 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
       const action = btn.dataset.action;
 
       if (action === "save-profile") {
+        const programInput = document.getElementById("settings-program");
         const nameInput = document.getElementById("settings-name");
         const semInput = document.getElementById("settings-current-sem");
-        if (!nameInput || !semInput) {
+        if (!programInput || !nameInput || !semInput) {
           return;
         }
         const name = nameInput.value.trim();
+        const nextProgram = resolveProgramKey(programInput.value);
         if (!name) {
           showToast("Name cannot be empty.", "error");
           return;
         }
+
+        if (nextProgram !== state.program) {
+          const approved = await confirmDialog("Switching program will reset grades and forecasts for the selected program. Continue?");
+          if (!approved) {
+            return;
+          }
+          const rebuilt = defaultState(nextProgram);
+          state = {
+            ...rebuilt,
+            name,
+            userId: state.userId,
+            pin: state.pin,
+            recoveryHash: state.recoveryHash,
+            recoveryPhrase: state.recoveryPhrase
+          };
+          syncProgramContext(nextProgram);
+          RUNTIME.timetableSem = state.currentSem;
+          saveState();
+          showToast("Program switched and curriculum reset.", "success");
+          routeRender();
+          return;
+        }
+
         state.name = name;
-        state.currentSem = semInput.value;
+        state.currentSem = SEM_ORDER.includes(semInput.value) ? semInput.value : SEM_ORDER[0];
         saveState();
         showToast("Profile updated.", "success");
         renderTopBar();
@@ -1221,7 +1436,7 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
       }
 
       if (action === "export-json") {
-        downloadJSON(`bsse-grade-tracker-${Date.now()}.json`, state);
+        downloadJSON(`grade-tracker-${state.program}-${Date.now()}.json`, state);
       }
 
       if (action === "reset-all") {
@@ -1337,6 +1552,21 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
   // ╔══════════════════════════════════════════╗
   // ║  UTILS                                   ║
   // ╚══════════════════════════════════════════╝
+  function applyProgramBranding() {
+    const program = getActiveProgram();
+    const title = document.getElementById("sidebar-app-title");
+    const label = document.getElementById("sidebar-program-label");
+    if (title) {
+      title.textContent = "Grade Tracker";
+    }
+    if (label) {
+      label.textContent = `${program.shortName} · Mbarara University`;
+    }
+    if (document && document.title) {
+      document.title = `${program.shortName} Grade Tracker - Mbarara University`;
+    }
+  }
+
   function showToast(message, type = "info") {
     const container = document.getElementById("toast-container");
     if (!container) {
@@ -1667,11 +1897,43 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
         showToast("Invalid file.", "error");
         return;
       }
+
+      const nextProgram = resolveProgramKey(parsed.program);
+      const clean = defaultState(nextProgram);
+      syncProgramContext(nextProgram);
+
       state = {
-        ...defaultState(),
+        ...clean,
         ...parsed,
-        userId: parsed.userId || state.userId || getOrCreateUserId()
+        program: nextProgram,
+        userId: parsed.userId || state.userId || getOrCreateUserId(),
+        grades: {
+          ...clean.grades,
+          ...(parsed.grades || {})
+        },
+        forecast: Array.isArray(parsed.forecast) ? parsed.forecast : []
       };
+
+      state.currentSem = SEM_ORDER.includes(state.currentSem) ? state.currentSem : SEM_ORDER[0];
+      RUNTIME.timetableSem = state.currentSem;
+
+      SEM_ORDER.forEach((semKey) => {
+        CURRICULUM[semKey].courses.forEach((course) => {
+          const value = state.grades[semKey][course.code];
+          state.grades[semKey][course.code] = GRADE_LIST.includes(value) ? value : "";
+        });
+      });
+
+      state.forecast = state.forecast
+        .filter((row) => row && SEM_ORDER.includes(row.semKey) && GRADE_MAP.hasOwnProperty(row.grade))
+        .filter((row) => CURRICULUM[row.semKey].courses.some((course) => course.code === row.courseCode))
+        .map((row) => ({
+          id: row.id || `forecast_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+          semKey: row.semKey,
+          courseCode: row.courseCode,
+          grade: row.grade
+        }));
+
       saveState();
       showToast("Import successful.", "success");
       routeRender();
@@ -1697,8 +1959,9 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
     overlay.classList.remove("hidden");
 
     let step = 1;
+    let tempProgram = resolveProgramKey(state && state.program);
     let tempName = "";
-    let tempSem = "Y1S1";
+    let tempSem = PROGRAMS[tempProgram].semOrder[0];
     let tempPin = "";
     const tempUserId = getOrCreateUserId();
     const phrase = generateRecoveryPhrase();
@@ -1707,10 +1970,11 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
       if (step === 1) {
         overlay.innerHTML = `
           <div class="modal-card">
-            <h2>Welcome to SE Grade Tracker</h2>
-            <p>Built for BSc Software Engineering students at Mbarara University by Mubiru Elton Felix</p>
-            <label>What's your first name?</label>
-            <input id="onboard-name" type="text" maxlength="30" value="${escapeHtml(tempName)}">
+            <h2>Choose your program</h2>
+            <p>Select your degree first so we load the right course units and semesters.</p>
+            <div class="pill-row onboard-sem-grid">
+              ${Object.values(PROGRAMS).map((program) => `<button class="pill ${program.key === tempProgram ? "active" : ""}" data-program="${program.key}">${program.shortName}</button>`).join("")}
+            </div>
             <div class="mt-12"><button class="btn btn-primary" data-step="next-1">Continue →</button></div>
           </div>
         `;
@@ -1719,16 +1983,28 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
       if (step === 2) {
         overlay.innerHTML = `
           <div class="modal-card">
-            <h2>Which semester are you currently in?</h2>
-            <div class="pill-row onboard-sem-grid">
-              ${SEM_ORDER.map((sem) => `<button class="pill ${sem === tempSem ? "active" : ""}" data-sem="${sem}">${sem}</button>`).join("")}
-            </div>
+            <h2>Welcome to Grade Tracker</h2>
+            <p>Program selected: ${PROGRAMS[tempProgram].displayName}</p>
+            <label>What's your first name?</label>
+            <input id="onboard-name" type="text" maxlength="30" value="${escapeHtml(tempName)}">
             <div class="mt-12"><button class="btn btn-primary" data-step="next-2">Continue →</button></div>
           </div>
         `;
       }
 
       if (step === 3) {
+        overlay.innerHTML = `
+          <div class="modal-card">
+            <h2>Which semester are you currently in?</h2>
+            <div class="pill-row onboard-sem-grid">
+              ${PROGRAMS[tempProgram].semOrder.map((sem) => `<button class="pill ${sem === tempSem ? "active" : ""}" data-sem="${sem}">${sem}</button>`).join("")}
+            </div>
+            <div class="mt-12"><button class="btn btn-primary" data-step="next-3">Continue →</button></div>
+          </div>
+        `;
+      }
+
+      if (step === 4) {
         overlay.innerHTML = `
           <div class="modal-card">
             <h2>Set a 4-digit PIN to protect your data</h2>
@@ -1755,6 +2031,15 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
     overlay.addEventListener("click", async (event) => {
       const btn = event.target.closest("button[data-step]");
       const semBtn = event.target.closest("button[data-sem]");
+      const programBtn = event.target.closest("button[data-program]");
+
+      if (programBtn) {
+        tempProgram = resolveProgramKey(programBtn.dataset.program);
+        tempSem = PROGRAMS[tempProgram].semOrder[0];
+        draw();
+        return;
+      }
+
       if (semBtn) {
         tempSem = semBtn.dataset.sem;
         draw();
@@ -1765,18 +2050,23 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
       }
 
       if (btn.dataset.step === "next-1") {
+        step = 2;
+        draw();
+      }
+
+      if (btn.dataset.step === "next-2") {
         const input = document.getElementById("onboard-name");
         if (!input || !input.value.trim()) {
           showToast("Please enter your first name.", "error");
           return;
         }
         tempName = input.value.trim();
-        step = 2;
+        step = 3;
         draw();
       }
 
-      if (btn.dataset.step === "next-2") {
-        step = 3;
+      if (btn.dataset.step === "next-3") {
+        step = 4;
         draw();
         const checkbox = document.getElementById("onboard-phrase-check");
         const pin = document.getElementById("onboard-pin");
@@ -1800,12 +2090,17 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
           return;
         }
 
-        state.name = tempName;
-        state.currentSem = tempSem;
-        state.userId = tempUserId;
-        state.recoveryPhrase = phrase;
-        state.pin = await hashPIN(tempPin);
-        state.recoveryHash = await hashPIN(phrase);
+        const fresh = defaultState(tempProgram);
+        state = {
+          ...fresh,
+          name: tempName,
+          currentSem: tempSem,
+          userId: tempUserId,
+          recoveryPhrase: phrase,
+          pin: await hashPIN(tempPin),
+          recoveryHash: await hashPIN(phrase)
+        };
+        syncProgramContext(state.program);
         saveState();
 
         overlay.classList.add("hidden");
@@ -1836,7 +2131,7 @@ const SEM_ORDER = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2
 
       overlay.innerHTML = `
         <div class="modal-card">
-          <h2>SE Grade Tracker</h2>
+          <h2>${getActiveProgram().shortName} Grade Tracker</h2>
           <p>${message}</p>
           <div class="pin-dots">
             ${[0, 1, 2, 3].map((i) => `<span class="pin-dot ${i < RUNTIME.pinBuffer.length ? "filled" : ""}"></span>`).join("")}
