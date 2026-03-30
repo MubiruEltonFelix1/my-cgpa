@@ -356,9 +356,9 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
         };
 
         const RESOURCE_DB = {
-          name: "grade_tracker_resources",
-          version: 1,
-          store: "files"
+            name: "grade_tracker_resources",
+            version: 1,
+            store: "files"
         };
 
         const TIMETABLE_DATES = {
@@ -435,11 +435,11 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             forecastLeftCUOverride: "",
             forecastSemToAdd: "",
             insightTarget: "",
-          insightLeftCUOverride: "",
-          resourcesQuery: "",
-          resourcesSemFilter: "all",
-          resourcesTypeFilter: "all",
-          resourcesYearFilter: "all"
+            insightLeftCUOverride: "",
+            resourcesQuery: "",
+            resourcesSemFilter: "all",
+            resourcesTypeFilter: "all",
+            resourcesYearFilter: "all"
         };
 
         function resolveProgramKey(programKey) {
@@ -517,9 +517,8 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
                     forecast: Array.isArray(parsed.forecast) ? parsed.forecast : []
                 };
 
-                  state.resources = Array.isArray(parsed.resources)
-                    ? parsed.resources.filter((item) => item && item.id && item.fileName)
-                    : [];
+                state.resources = Array.isArray(parsed.resources) ?
+                    parsed.resources.filter((item) => item && item.id && item.fileName) : [];
 
                 state.currentSem = SEM_ORDER.includes(state.currentSem) ? state.currentSem : SEM_ORDER[0];
                 RUNTIME.timetableSem = state.currentSem;
@@ -767,7 +766,7 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             renderDashboard();
             renderSemesterTable();
             renderForecast();
-          renderResources();
+            renderResources();
             renderInsights();
             renderTimetable();
             syncActiveNav();

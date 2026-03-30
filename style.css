@@ -819,7 +819,6 @@ select.grade-F {
         color: var(--accent);
         background: var(--accent-glow);
     }
-
     .mobile-more-panel {
         position: fixed;
         left: 12px;
@@ -834,7 +833,6 @@ select.grade-F {
         gap: 8px;
         box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
     }
-
     .mobile-more-item {
         border: 1px solid var(--border);
         border-radius: var(--radius-md);
@@ -845,7 +843,6 @@ select.grade-F {
         display: grid;
         gap: 2px;
     }
-
     .mobile-more-item small {
         color: var(--text-2);
     }
@@ -855,7 +852,6 @@ select.grade-F {
     .mobile-tabs {
         display: none;
     }
-
     .mobile-more-panel {
         display: none;
     }
