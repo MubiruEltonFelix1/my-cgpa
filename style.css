@@ -780,7 +780,7 @@ select.grade-F {
         border-top: 1px solid var(--border);
         padding: 8px;
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         gap: 8px;
         z-index: 60;
     }
@@ -848,6 +848,29 @@ select.grade-F {
 .toast--fade {
     opacity: 0;
     transform: translateY(6px);
+}
+
+
+/* === FOOTER === */
+
+.app-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--surface-2);
+    border-top: 1px solid var(--border);
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-3);
+    z-index: 10;
+}
+
+.app-footer p {
+    margin: 0;
+    letter-spacing: 0.3px;
+}
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 

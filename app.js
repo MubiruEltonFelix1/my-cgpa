@@ -214,6 +214,108 @@ const PROGRAMS = {
         ]
       }
     }
+  },
+  electricalEngineering: {
+    key: "electricalEngineering",
+    displayName: "Bachelor of Science in Electrical Engineering",
+    shortName: "Electrical Engineering",
+    semOrder: SEMESTER_ORDER_STANDARD,
+    curriculum: {
+      Y1S1: {
+        label: "Year 1 · Semester 1",
+        courses: [
+          { code: "BCE1104", name: "Information and Communications Technology", cu: 3 },
+          { code: "COM1101", name: "Communication Skills", cu: 3 },
+          { code: "DVS1106", name: "Introduction to Political Economy", cu: 3 },
+          { code: "EEE1101", name: "Electricity and Magnetism", cu: 3 },
+          { code: "EEE1105", name: "Physical Electronics", cu: 3 },
+          { code: "EEE1106", name: "Engineering Mathematics I", cu: 4 },
+          { code: "EEE1111", name: "Engineering Materials", cu: 3 }
+        ]
+      },
+      Y1S2: {
+        label: "Year 1 · Semester 2",
+        courses: [
+          { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
+          { code: "EEE1203", name: "Engineering Drawing", cu: 3 },
+          { code: "EEE1206", name: "Engineering Mathematics II", cu: 4 },
+          { code: "EEE1207", name: "Circuit Theory", cu: 3 },
+          { code: "EEE1209", name: "Digital Electronics", cu: 3 },
+          { code: "EEE1213", name: "Sensor Technology", cu: 3 },
+          { code: "EEE1215", name: "Fundamentals of Computer Programming", cu: 3 }
+        ]
+      },
+      Y2S1: {
+        label: "Year 2 · Semester 1",
+        courses: [
+          { code: "BCE2102", name: "Digital Systems", cu: 3 },
+          { code: "BCE2113", name: "Object Oriented Programming-Java", cu: 4 },
+          { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
+          { code: "EEE2103", name: "Engineering Mathematics III", cu: 4 },
+          { code: "EEE2104", name: "Electrical Machine Design", cu: 3 },
+          { code: "EEE2106", name: "Engineering Ethics", cu: 3 },
+          { code: "EEE2114", name: "Simulation and Testing Engineering", cu: 3 }
+        ]
+      },
+      Y2S2: {
+        label: "Year 2 · Semester 2",
+        courses: [
+          { code: "BCE2215", name: "Engineering Mathematics IV", cu: 4 },
+          { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
+          { code: "EEE2211", name: "Power Systems Analysis", cu: 3 },
+          { code: "EEE2212", name: "Electric Machine Modeling", cu: 3 },
+          { code: "EEE2213", name: "Basic PLC Programming", cu: 4 },
+          { code: "EEE2214", name: "Electromagnetic Fields", cu: 3 },
+          { code: "EEE2216", name: "Research Methods", cu: 3 }
+        ]
+      },
+      Y3S1: {
+        label: "Year 3 · Semester 1",
+        courses: [
+          { code: "EEE3112", name: "Analog Electronics", cu: 4 },
+          { code: "EEE3115", name: "Renewable Energy Engineering", cu: 3 },
+          { code: "BCE3110", name: "Communication Systems Engineering", cu: 3 },
+          { code: "BCE3123", name: "Internet of Things (IoT)", cu: 3 },
+          { code: "EEE3111", name: "Semiconductor Devices and Applications", cu: 3 },
+          { code: "BCE3121", name: "VLSI Systems and Design", cu: 3 },
+          { code: "BME3101", name: "Microprocessors", cu: 3 }
+        ]
+      },
+      Y3S2: {
+        label: "Year 3 · Semester 2",
+        courses: [
+          { code: "BCE3215", name: "Digital Signal Processing", cu: 4 },
+          { code: "EEE3211", name: "Radio Propagation and Antennas", cu: 4 },
+          { code: "BCE3216", name: "Instrumentation and Measurements", cu: 4 },
+          { code: "BCE3214", name: "Embedded Systems Programming and Design", cu: 4 },
+          { code: "EEE3206", name: "Mini Engineering Project", cu: 3 },
+          { code: "EEE3202", name: "Electronic Circuits", cu: 3 },
+          { code: "EEE3208", name: "Power Electronics", cu: 3 }
+        ]
+      },
+      Y4S1: {
+        label: "Year 4 · Semester 1",
+        courses: [
+          { code: "BCE4112", name: "Control Systems Engineering", cu: 4 },
+          { code: "EEE4102", name: "Maintenance Engineering", cu: 3 },
+          { code: "EEE4105", name: "Electrical Installation Design", cu: 3 },
+          { code: "EEE4113", name: "Power Generation, Operation and Control", cu: 3 },
+          { code: "BCE4107", name: "Optical Communication Systems", cu: 3 },
+          { code: "EEE4104", name: "TV and Video Engineering", cu: 3 }
+        ]
+      },
+      Y4S2: {
+        label: "Year 4 · Semester 2",
+        courses: [
+          { code: "BCE420", name: "Professional Law and Ethics for Engineers", cu: 3 },
+          { code: "BCE4223", name: "Entrepreneurship and Business Management", cu: 3 },
+          { code: "EEE4201", name: "Power Systems Protection and Coordination", cu: 3 },
+          { code: "EEE4207", name: "Final Year Project", cu: 5 },
+          { code: "BCE4222", name: "Robotics Engineering", cu: 3 },
+          { code: "EEE4206", name: "Radio Frequency Engineering", cu: 3 }
+        ]
+      }
+    }
   }
 };
 
@@ -275,7 +377,8 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             Y4S1: "timetables/y4s1.jpg",
             Y4S2: "timetables/timetable_year4_sem2.png"
           },
-          agriculture: {}
+          agriculture: {},
+          electricalEngineering: {}
         };
 
         const ADJECTIVES = [
@@ -323,9 +426,10 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             failedPinAttempts: 0,
             pinBuffer: "",
             forecastTarget: "",
-            forecastLeftCU: "",
+          forecastLeftCUOverride: "",
+          forecastSemToAdd: "",
             insightTarget: "",
-            insightLeftCU: ""
+          insightLeftCUOverride: ""
         };
 
           function resolveProgramKey(programKey) {
@@ -557,6 +661,29 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             }
             return Infinity;
         }
+
+          function totalProgramCU() {
+            return SEM_ORDER.reduce((sum, semKey) => sum + semesterUnits(semKey), 0);
+          }
+
+          function autoRemainingCU() {
+            return Math.max(0, totalProgramCU() - completedCU());
+          }
+
+          function effectiveRemainingCU(overrideValue) {
+            const parsed = Number(overrideValue);
+            if (Number.isFinite(parsed) && parsed > 0) {
+              return parsed;
+            }
+            return autoRemainingCU();
+          }
+
+          function semesterDisplayKey(semKey) {
+            if (!semKey || !CURRICULUM[semKey]) {
+              return "N/A";
+            }
+            return semKey;
+          }
 
         function draggingCourses() {
             const rows = [];
@@ -829,6 +956,12 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             const current = overallCGPA();
             const projected = projectedCGPA();
             const delta = projected - current;
+            const futureSems = futureSemesters();
+            if (!futureSems.includes(RUNTIME.forecastSemToAdd)) {
+              RUNTIME.forecastSemToAdd = futureSems[0] || "";
+            }
+            const autoLeft = autoRemainingCU();
+            const forecastLeft = effectiveRemainingCU(RUNTIME.forecastLeftCUOverride);
 
             const scenarioNudge = projected >= current ?
                 `On this path, you'll graduate ${degreeClass(projected)}.` :
@@ -870,7 +1003,7 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
       `;
     }).join("");
 
-    const needed = cgpaNeeded(Number(RUNTIME.forecastTarget), Number(RUNTIME.forecastLeftCU));
+    const needed = cgpaNeeded(Number(RUNTIME.forecastTarget), forecastLeft);
     const neededGrade = needed === null ? "-" : requiredLetter(needed);
     const semNeed = Number.isFinite(Number(RUNTIME.forecastTarget)) ? semestersToTarget(Number(RUNTIME.forecastTarget)) : null;
 
@@ -895,6 +1028,22 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             <div class="mt-10">
               <button class="btn btn-primary btn-sm" data-action="forecast-add">Add future course</button>
             </div>
+            <div class="field-grid mt-10">
+              <div>
+                <label>Semester to add</label>
+                <select id="forecast-bulk-sem">
+                  ${futureSems.map((sem) => `<option value="${sem}" ${sem === RUNTIME.forecastSemToAdd ? "selected" : ""}>${sem} · ${CURRICULUM[sem].label}</option>`).join("")}
+                </select>
+              </div>
+              <div class="stack">
+                <label>Quick actions</label>
+                <div class="pill-row">
+                  <button class="btn btn-secondary btn-sm" data-action="forecast-add-semester">Add whole semester</button>
+                  <button class="btn btn-secondary btn-sm" data-action="forecast-add-all">Add all future semesters</button>
+                  <button class="btn btn-secondary btn-sm" data-action="forecast-clear">Clear forecast</button>
+                </div>
+              </div>
+            </div>
           </article>
           ${rows || `<article class="card"><p>No forecast rows yet. Add one to simulate outcomes.</p></article>`}
         </section>
@@ -907,11 +1056,12 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
               <input id="forecast-target" type="number" min="0" max="5" step="0.01" value="${RUNTIME.forecastTarget}">
             </div>
             <div>
-              <label>Credit units I have left</label>
-              <input id="forecast-left-cu" type="number" min="1" step="1" value="${RUNTIME.forecastLeftCU}">
+              <label>Credit units I have left (optional override)</label>
+              <input id="forecast-left-cu-override" type="number" min="1" step="1" value="${RUNTIME.forecastLeftCUOverride}">
+              <small>Auto: ${autoLeft} CU remaining (${completedCU()} completed out of ${totalProgramCU()})</small>
             </div>
             <div>
-              <p class="${feasibilityColor(needed)}">You need an average of ${needed === null ? "-" : formatGPA(needed)} grade points per CU</p>
+              <p class="${feasibilityColor(needed)}">Using ${forecastLeft} remaining CU, you need an average of ${needed === null ? "-" : formatGPA(needed)} grade points per CU</p>
               <p class="${feasibilityColor(needed)}">That means averaging ${neededGrade} or better across all remaining courses</p>
               <p class="${semNeed === Infinity ? "text-negative" : "text-primary"}">Semesters of straight A's needed: ${semNeed === null ? "-" : (semNeed === Infinity ? "Not feasible" : semNeed)}</p>
             </div>
@@ -934,6 +1084,8 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
     const worstSem = lowestSemester();
     const maxUnitsSem = semesterWithMostUnits();
     const bestSingle = bestCourse();
+    const insightLeft = effectiveRemainingCU(RUNTIME.insightLeftCUOverride);
+    const insightAutoLeft = autoRemainingCU();
     const dragging = draggingCourses();
     const totalImpact = dragging.reduce((sum, row) => sum + row.impact, 0);
 
@@ -961,7 +1113,7 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
         `;
 
     const gradeRows = ["A", "B+", "B", "C+", "C", "D+", "D"].map((g) => {
-      const left = Number(RUNTIME.insightLeftCU);
+      const left = insightLeft;
       const target = Number(RUNTIME.insightTarget);
       const needed = cgpaNeeded(target, left);
       const reaches = Number.isFinite(needed) && GRADE_MAP[g] >= needed;
@@ -983,9 +1135,9 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
         </section>
 
         <section class="grid-4">
-          ${metricCard("Best Semester", `${bestSem.sem} (${formatGPA(bestSem.gpa)})`, false)}
-          ${metricCard("Worst Semester", `${worstSem.sem} (${formatGPA(worstSem.gpa)})`, false)}
-          ${metricCard("Most Units in One Sem", `${maxUnitsSem.sem} (${maxUnitsSem.units})`, false)}
+          ${metricCard("Best Semester", `${semesterDisplayKey(bestSem.semKey)} (${formatGPA(bestSem.gpa)})`, false)}
+          ${metricCard("Worst Semester", `${semesterDisplayKey(worstSem.semKey)} (${formatGPA(worstSem.gpa)})`, false)}
+          ${metricCard("Most Units in One Sem", `${semesterDisplayKey(maxUnitsSem.semKey)} (${maxUnitsSem.units})`, false)}
           ${metricCard("Best Single Course", bestSingle ? `${bestSingle.course.code} (${bestSingle.grade})` : "N/A", false)}
         </section>
 
@@ -1003,7 +1155,8 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             </div>
             <div>
               <label>Remaining CU</label>
-              <input id="insight-left-cu" type="number" min="1" step="1" value="${RUNTIME.insightLeftCU}">
+              <input id="insight-left-cu-override" type="number" min="1" step="1" value="${RUNTIME.insightLeftCUOverride}">
+              <small>Auto: ${insightAutoLeft} CU remaining (${completedCU()} completed out of ${totalProgramCU()})</small>
             </div>
           </div>
           <div class="table-wrap mt-10">
@@ -1223,8 +1376,12 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
         RUNTIME.forecastTarget = target.value;
         renderForecast();
       }
-      if (target.matches("#forecast-left-cu")) {
-        RUNTIME.forecastLeftCU = target.value;
+      if (target.matches("#forecast-left-cu-override")) {
+        RUNTIME.forecastLeftCUOverride = target.value;
+        renderForecast();
+      }
+      if (target.matches("#forecast-bulk-sem")) {
+        RUNTIME.forecastSemToAdd = target.value;
         renderForecast();
       }
 
@@ -1232,8 +1389,8 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
         RUNTIME.insightTarget = target.value;
         renderInsights();
       }
-      if (target.matches("#insight-left-cu")) {
-        RUNTIME.insightLeftCU = target.value;
+      if (target.matches("#insight-left-cu-override")) {
+        RUNTIME.insightLeftCUOverride = target.value;
         renderInsights();
       }
 
@@ -1306,6 +1463,71 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
           grade: "A"
         });
         saveState();
+        renderForecast();
+      }
+
+      if (action === "forecast-add-semester") {
+        const semKey = futureSemesters().includes(RUNTIME.forecastSemToAdd) ? RUNTIME.forecastSemToAdd : futureSemesters()[0];
+        if (!semKey) {
+          showToast("No future semesters available.", "error");
+          return;
+        }
+        const existing = new Set(state.forecast.map((row) => `${row.semKey}::${row.courseCode}`));
+        const freshRows = CURRICULUM[semKey].courses
+          .filter((course) => !existing.has(`${semKey}::${course.code}`))
+          .map((course) => ({
+            id: `forecast_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+            semKey,
+            courseCode: course.code,
+            grade: "B+"
+          }));
+        if (!freshRows.length) {
+          showToast("All courses for that semester are already in forecast.", "info");
+          return;
+        }
+        state.forecast.push(...freshRows);
+        saveState();
+        showToast(`Added ${freshRows.length} courses from ${semKey}.`, "success");
+        renderForecast();
+      }
+
+      if (action === "forecast-add-all") {
+        const sems = futureSemesters();
+        if (!sems.length) {
+          showToast("No future semesters available.", "error");
+          return;
+        }
+        const existing = new Set(state.forecast.map((row) => `${row.semKey}::${row.courseCode}`));
+        const freshRows = [];
+        sems.forEach((semKey) => {
+          CURRICULUM[semKey].courses.forEach((course) => {
+            const key = `${semKey}::${course.code}`;
+            if (existing.has(key)) {
+              return;
+            }
+            existing.add(key);
+            freshRows.push({
+              id: `forecast_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+              semKey,
+              courseCode: course.code,
+              grade: "B+"
+            });
+          });
+        });
+        if (!freshRows.length) {
+          showToast("All future courses are already added.", "info");
+          return;
+        }
+        state.forecast.push(...freshRows);
+        saveState();
+        showToast(`Added ${freshRows.length} future courses.`, "success");
+        renderForecast();
+      }
+
+      if (action === "forecast-clear") {
+        state.forecast = [];
+        saveState();
+        showToast("Forecast rows cleared.", "success");
         renderForecast();
       }
 
@@ -1693,20 +1915,21 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
   }
 
   function highestSemester() {
-    const all = SEM_ORDER.map((sem) => ({ sem, gpa: semesterGPA(sem) }));
-    return all.reduce((best, cur) => cur.gpa > best.gpa ? cur : best, { sem: "Y1S1", gpa: 0 });
+    const all = SEM_ORDER.map((semKey) => ({ semKey, gpa: semesterGPA(semKey) }));
+    return all.reduce((best, cur) => cur.gpa > best.gpa ? cur : best, { semKey: SEM_ORDER[0] || "N/A", gpa: 0 });
   }
 
   function lowestSemester() {
     const done = completedSemesters();
     if (!done.length) {
-      return { sem: "N/A", gpa: 0 };
+      return { semKey: "N/A", gpa: 0 };
     }
-    return done.reduce((worst, cur) => cur.gpa < worst.gpa ? cur : worst, done[0]);
+    const mapped = done.map((row) => ({ semKey: row.key, gpa: row.gpa }));
+    return mapped.reduce((worst, cur) => cur.gpa < worst.gpa ? cur : worst, mapped[0]);
   }
 
   function semesterWithMostUnits() {
-    const all = SEM_ORDER.map((sem) => ({ sem, units: semesterUnits(sem) }));
+    const all = SEM_ORDER.map((semKey) => ({ semKey, units: semesterUnits(semKey) }));
     return all.reduce((best, cur) => cur.units > best.units ? cur : best, all[0]);
   }
 
