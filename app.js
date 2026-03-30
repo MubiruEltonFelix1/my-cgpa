@@ -4,319 +4,319 @@ let chart;
 const SEMESTER_ORDER_STANDARD = ["Y1S1", "Y1S2", "Y2S1", "Y2S2", "Y3S1", "Y3S2", "Y4S1", "Y4S2"];
 
 const PROGRAMS = {
-  softwareEngineering: {
-    key: "softwareEngineering",
-    displayName: "Bachelor of Science in Software Engineering",
-    shortName: "Software Engineering",
-    semOrder: SEMESTER_ORDER_STANDARD,
-    curriculum: {
-      Y1S1: {
-        label: "Year 1 · Semester 1",
-        courses: [
-          { code: "SWE1103", name: "Linear Algebra", cu: 3 },
-          { code: "DVS1106", name: "Introduction to Political Economy", cu: 3 },
-          { code: "SWE1101", name: "Discrete Mathematics", cu: 3 },
-          { code: "SWE1102", name: "Structured Programming with C", cu: 4 },
-          { code: "SWE1104", name: "Software Development Principles", cu: 4 },
-          { code: "SWE1105", name: "Communication Skills", cu: 3 }
-        ]
-      },
-      Y1S2: {
-        label: "Year 1 · Semester 2",
-        courses: [
-          { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
-          { code: "SWE1201", name: "Object Oriented Programming I", cu: 4 },
-          { code: "SWE1202", name: "Multivariate Calculus", cu: 4 },
-          { code: "SWE1203", name: "Operating Systems", cu: 4 },
-          { code: "SWE1204", name: "Software Systems Engineering Practice", cu: 3 },
-          { code: "SWE1205", name: "Database Programming", cu: 4 },
-          { code: "SWE1206", name: "Computer Architecture and Organization", cu: 3 }
-        ]
-      },
-      Y2S1: {
-        label: "Year 2 · Semester 1",
-        courses: [
-          { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
-          { code: "SWE2101", name: "Object Oriented Programming II", cu: 4 },
-          { code: "SWE2102", name: "Requirements Engineering", cu: 3 },
-          { code: "SWE2103", name: "Probability and Statistics", cu: 4 },
-          { code: "SWE2104", name: "Data Structures and Algorithms", cu: 3 },
-          { code: "SWE2105", name: "Geographic Information Systems", cu: 4 },
-          { code: "SWE2106", name: "Internet Technology and Web Design", cu: 4 },
-          { code: "SWE2107", name: "Systems Analysis and Design", cu: 4 }
-        ]
-      },
-      Y2S2: {
-        label: "Year 2 · Semester 2",
-        courses: [
-          { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
-          { code: "SWE2201", name: "Numerical Analysis", cu: 3 },
-          { code: "SWE2202", name: "Data Communication Technology", cu: 4 },
-          { code: "SWE2203", name: "Software Architecture and Design", cu: 3 },
-          { code: "SWE2204", name: "Software Metrics", cu: 3 },
-          { code: "SWE2205", name: "User Interface Design and Development", cu: 4 },
-          { code: "SWE2206", name: "Distributed Computing", cu: 4 }
-        ]
-      },
-      Y3S1: {
-        label: "Year 3 · Semester 1",
-        courses: [
-          { code: "SWE3101", name: "Human Computer Interaction", cu: 4 },
-          { code: "SWE3102", name: "Software Reliability and Testing", cu: 4 },
-          { code: "SWE3103", name: "Software Project Management", cu: 4 },
-          { code: "SWE3104", name: "Modelling and Simulation", cu: 4 },
-          { code: "SWE3105", name: "Research Methods in Computing", cu: 4 },
-          { code: "SWE3106", name: "Mobile Networks and Computing", cu: 4 }
-        ]
-      },
-      Y3S2: {
-        label: "Year 3 · Semester 2",
-        courses: [
-          { code: "SWE3201", name: "Embedded Systems Software", cu: 4 },
-          { code: "SWE3202", name: "Mobile Computing and Applications", cu: 4 },
-          { code: "SWE3203", name: "Third Year Research Project", cu: 4 },
-          { code: "SWE3204", name: "Data Mining", cu: 3 },
-          { code: "SWE3205", name: "Compiler Construction", cu: 4 },
-          { code: "SWE3206", name: "Systems Programming - Linux", cu: 4 }
-        ]
-      },
-      Y4S1: {
-        label: "Year 4 · Semester 1",
-        courses: [
-          { code: "SWE4103", name: "Formal Methods", cu: 3 },
-          { code: "SWE4101", name: "Digital System Design", cu: 4 },
-          { code: "SWE4102", name: "Computer Graphics Engineering", cu: 4 },
-          { code: "SWE4104", name: "Software Design Patterns", cu: 4 },
-          { code: "SWE4105", name: "Artificial Intelligence", cu: 4 },
-          { code: "SWE4106", name: "Ethical and Professional Issues in Computing", cu: 4 }
-        ]
-      },
-      Y4S2: {
-        label: "Year 4 · Semester 2",
-        courses: [
-          { code: "SWE4201", name: "Machine Learning", cu: 4 },
-          { code: "SWE4202", name: "Software Maintenance and Evolution", cu: 4 },
-          { code: "SWE4203", name: "Entrepreneurship", cu: 3 },
-          { code: "SWE4204", name: "Software Security", cu: 4 },
-          { code: "SWE4205", name: "Final Year Project", cu: 5 }
-        ]
-      }
+    softwareEngineering: {
+        key: "softwareEngineering",
+        displayName: "Bachelor of Science in Software Engineering",
+        shortName: "Software Engineering",
+        semOrder: SEMESTER_ORDER_STANDARD,
+        curriculum: {
+            Y1S1: {
+                label: "Year 1 · Semester 1",
+                courses: [
+                    { code: "SWE1103", name: "Linear Algebra", cu: 3 },
+                    { code: "DVS1106", name: "Introduction to Political Economy", cu: 3 },
+                    { code: "SWE1101", name: "Discrete Mathematics", cu: 3 },
+                    { code: "SWE1102", name: "Structured Programming with C", cu: 4 },
+                    { code: "SWE1104", name: "Software Development Principles", cu: 4 },
+                    { code: "SWE1105", name: "Communication Skills", cu: 3 }
+                ]
+            },
+            Y1S2: {
+                label: "Year 1 · Semester 2",
+                courses: [
+                    { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
+                    { code: "SWE1201", name: "Object Oriented Programming I", cu: 4 },
+                    { code: "SWE1202", name: "Multivariate Calculus", cu: 4 },
+                    { code: "SWE1203", name: "Operating Systems", cu: 4 },
+                    { code: "SWE1204", name: "Software Systems Engineering Practice", cu: 3 },
+                    { code: "SWE1205", name: "Database Programming", cu: 4 },
+                    { code: "SWE1206", name: "Computer Architecture and Organization", cu: 3 }
+                ]
+            },
+            Y2S1: {
+                label: "Year 2 · Semester 1",
+                courses: [
+                    { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
+                    { code: "SWE2101", name: "Object Oriented Programming II", cu: 4 },
+                    { code: "SWE2102", name: "Requirements Engineering", cu: 3 },
+                    { code: "SWE2103", name: "Probability and Statistics", cu: 4 },
+                    { code: "SWE2104", name: "Data Structures and Algorithms", cu: 3 },
+                    { code: "SWE2105", name: "Geographic Information Systems", cu: 4 },
+                    { code: "SWE2106", name: "Internet Technology and Web Design", cu: 4 },
+                    { code: "SWE2107", name: "Systems Analysis and Design", cu: 4 }
+                ]
+            },
+            Y2S2: {
+                label: "Year 2 · Semester 2",
+                courses: [
+                    { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
+                    { code: "SWE2201", name: "Numerical Analysis", cu: 3 },
+                    { code: "SWE2202", name: "Data Communication Technology", cu: 4 },
+                    { code: "SWE2203", name: "Software Architecture and Design", cu: 3 },
+                    { code: "SWE2204", name: "Software Metrics", cu: 3 },
+                    { code: "SWE2205", name: "User Interface Design and Development", cu: 4 },
+                    { code: "SWE2206", name: "Distributed Computing", cu: 4 }
+                ]
+            },
+            Y3S1: {
+                label: "Year 3 · Semester 1",
+                courses: [
+                    { code: "SWE3101", name: "Human Computer Interaction", cu: 4 },
+                    { code: "SWE3102", name: "Software Reliability and Testing", cu: 4 },
+                    { code: "SWE3103", name: "Software Project Management", cu: 4 },
+                    { code: "SWE3104", name: "Modelling and Simulation", cu: 4 },
+                    { code: "SWE3105", name: "Research Methods in Computing", cu: 4 },
+                    { code: "SWE3106", name: "Mobile Networks and Computing", cu: 4 }
+                ]
+            },
+            Y3S2: {
+                label: "Year 3 · Semester 2",
+                courses: [
+                    { code: "SWE3201", name: "Embedded Systems Software", cu: 4 },
+                    { code: "SWE3202", name: "Mobile Computing and Applications", cu: 4 },
+                    { code: "SWE3203", name: "Third Year Research Project", cu: 4 },
+                    { code: "SWE3204", name: "Data Mining", cu: 3 },
+                    { code: "SWE3205", name: "Compiler Construction", cu: 4 },
+                    { code: "SWE3206", name: "Systems Programming - Linux", cu: 4 }
+                ]
+            },
+            Y4S1: {
+                label: "Year 4 · Semester 1",
+                courses: [
+                    { code: "SWE4103", name: "Formal Methods", cu: 3 },
+                    { code: "SWE4101", name: "Digital System Design", cu: 4 },
+                    { code: "SWE4102", name: "Computer Graphics Engineering", cu: 4 },
+                    { code: "SWE4104", name: "Software Design Patterns", cu: 4 },
+                    { code: "SWE4105", name: "Artificial Intelligence", cu: 4 },
+                    { code: "SWE4106", name: "Ethical and Professional Issues in Computing", cu: 4 }
+                ]
+            },
+            Y4S2: {
+                label: "Year 4 · Semester 2",
+                courses: [
+                    { code: "SWE4201", name: "Machine Learning", cu: 4 },
+                    { code: "SWE4202", name: "Software Maintenance and Evolution", cu: 4 },
+                    { code: "SWE4203", name: "Entrepreneurship", cu: 3 },
+                    { code: "SWE4204", name: "Software Security", cu: 4 },
+                    { code: "SWE4205", name: "Final Year Project", cu: 5 }
+                ]
+            }
+        }
+    },
+    agriculture: {
+        key: "agriculture",
+        displayName: "Bachelor of Science in Agriculture and Livelihood",
+        shortName: "Agriculture and Livelihood",
+        semOrder: SEMESTER_ORDER_STANDARD,
+        curriculum: {
+            Y1S1: {
+                label: "Year 1 · Semester 1",
+                courses: [
+                    { code: "DVS1106", name: "Fundamentals to Political Economy", cu: 3 },
+                    { code: "BPCD1102", name: "Fundamentals of Interdisciplinary Studies", cu: 3 },
+                    { code: "CSC1101", name: "Applied Computer Skills", cu: 3 },
+                    { code: "BSAL1101", name: "Livelihoods Approaches for Agricultural Transformation", cu: 4 },
+                    { code: "BSAL1102", name: "Agricultural Botany and Plant Physiology", cu: 4 },
+                    { code: "BSAL1104", name: "Crop Production Systems", cu: 3 },
+                    { code: "BSAL1105", name: "Livestock Production Systems", cu: 3 },
+                    { code: "BSAL1106", name: "Fundamentals of Animal Anatomy and Physiology", cu: 3 },
+                    { code: "BPCD1107", name: "Communication and Facilitation Skills", cu: 3 }
+                ]
+            },
+            Y1S2: {
+                label: "Year 1 · Semester 2",
+                courses: [
+                    { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
+                    { code: "BPCD1209", name: "Methodology, Conceptualization and Theoretical Analysis", cu: 3 },
+                    { code: "BSAL1212", name: "Fundamentals of Food Science and Technology", cu: 3 },
+                    { code: "BSAL1206", name: "Principles of Soil Science", cu: 4 },
+                    { code: "BSAL1207", name: "Annual and Perennial Crop Agronomy", cu: 4 },
+                    { code: "BSAL1208", name: "Apiculture and Aquaculture", cu: 3 },
+                    { code: "BSAL1209", name: "Poultry and Pig Production", cu: 3 },
+                    { code: "BSAL1210", name: "Agroforestry", cu: 4 },
+                    { code: "BSAL1211", name: "Dairy and Beef Production", cu: 3 }
+                ]
+            },
+            Y2S1: {
+                label: "Year 2 · Semester 1",
+                courses: [
+                    { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
+                    { code: "BSAL2101", name: "Farm Planning, Systems and Structures", cu: 3 },
+                    { code: "BSAL2102", name: "Pasture Production and Rangeland Management", cu: 4 },
+                    { code: "BSAL2103", name: "Animal Health and Disease", cu: 3 },
+                    { code: "BSAL2104", name: "Entomology and Nematology", cu: 3 },
+                    { code: "BSAL2105", name: "Agricultural Production Economics", cu: 3 },
+                    { code: "RMC2101", name: "Qualitative Research", cu: 3 },
+                    { code: "BSAL2106", name: "Animal Nutrition and Feed Technology", cu: 4 }
+                ]
+            },
+            Y2S2: {
+                label: "Year 2 · Semester 2",
+                courses: [
+                    { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
+                    { code: "BSAL2208", name: "Food Systems and Security", cu: 3 },
+                    { code: "BSAL2209", name: "Agriculture Extension and Rural Development", cu: 4 },
+                    { code: "BSAL2210", name: "Soil Conservation Technologies", cu: 3 },
+                    { code: "BSAL2214", name: "Agro Meteorology", cu: 4 },
+                    { code: "BSAL2212", name: "Plant Nutrition and Soil Fertility Management", cu: 3 },
+                    { code: "BPCD2212", name: "Remote Sensing and Geographical Information Systems", cu: 3 },
+                    { code: "BSAL2213", name: "Plant Pathology", cu: 4 },
+                    { code: "BSAL2215", name: "Microbiology", cu: 3 }
+                ]
+            },
+            Y3S1: {
+                label: "Year 3 · Semester 1",
+                courses: [
+                    { code: "BSAL3103", name: "Small Ruminants", cu: 3 },
+                    { code: "BSAL3104", name: "Agricultural Project Planning and Management", cu: 3 },
+                    { code: "BSAL3106", name: "Farm Mechanisation", cu: 4 },
+                    { code: "BSAL3110", name: "Food Processing and Preservation", cu: 4 },
+                    { code: "BSAL3109", name: "Statistics for Agricultural Research", cu: 3 },
+                    { code: "BSAL3108", name: "Land Tenure, Use and Planning", cu: 3 },
+                    { code: "STP3101", name: "Students' Community Twinning Project", cu: 3 }
+                ]
+            },
+            Y3S2: {
+                label: "Year 3 · Semester 2",
+                courses: [
+                    { code: "BSAL3105", name: "Farmer Institutional Structures and Development", cu: 3 },
+                    { code: "BSAL3210", name: "Appraisal of Agricultural Development Projects", cu: 4 },
+                    { code: "BSAL3211", name: "Irrigation and Farm Water Use Technologies", cu: 3 },
+                    { code: "BSAL3212", name: "Post-Harvest Handling and Value Addition", cu: 3 },
+                    { code: "BSAL3213", name: "Seed Technology", cu: 4 },
+                    { code: "BSAL3214", name: "Climate Change and Farm Production", cu: 4 },
+                    { code: "BSAL3215", name: "Agricultural Experimental Design", cu: 3 },
+                    { code: "STP3202", name: "Students' Community Twinning Project", cu: 3 },
+                    { code: "IPR3301", name: "Interdisciplinary Practicum (Internship)", cu: 5 }
+                ]
+            },
+            Y4S1: {
+                label: "Year 4 · Semester 1",
+                courses: [
+                    { code: "BSAL4118", name: "Entrepreneurship, Farm Enterprise Development and Innovation Systems", cu: 3 },
+                    { code: "BSAL4115", name: "Agricultural Marketing and Cooperatives", cu: 4 },
+                    { code: "BSAL4113", name: "Animal Breeding", cu: 4 },
+                    { code: "BSAL4114", name: "Agricultural Vulnerability and Resilience", cu: 4 },
+                    { code: "BSAL4116", name: "Plant Breeding and Biotechnology", cu: 4 },
+                    { code: "BSAL4117", name: "Milk and Meat Technology", cu: 3 },
+                    { code: "BSAL4119", name: "Animal Parasitology", cu: 3 }
+                ]
+            },
+            Y4S2: {
+                label: "Year 4 · Semester 2",
+                courses: [
+                    { code: "BSAL4207", name: "Commodity Value Chain Analysis", cu: 4 },
+                    { code: "BSAL4208", name: "Gender and Agriculture Development", cu: 4 },
+                    { code: "BSAL4209", name: "Poverty Analysis Tools and Techniques", cu: 4 },
+                    { code: "BSAL4210", name: "Farm Business, Accounting and Finance", cu: 4 },
+                    { code: "BSAL4213", name: "Agricultural Policy, Ethics and Law", cu: 4 },
+                    { code: "BSAL4212", name: "Research Project (Final Dissertation)", cu: 5 }
+                ]
+            }
+        }
+    },
+    electricalEngineering: {
+        key: "electricalEngineering",
+        displayName: "Bachelor of Science in Electrical Engineering",
+        shortName: "Electrical Engineering",
+        semOrder: SEMESTER_ORDER_STANDARD,
+        curriculum: {
+            Y1S1: {
+                label: "Year 1 · Semester 1",
+                courses: [
+                    { code: "BCE1104", name: "Information and Communications Technology", cu: 3 },
+                    { code: "COM1101", name: "Communication Skills", cu: 3 },
+                    { code: "DVS1106", name: "Introduction to Political Economy", cu: 3 },
+                    { code: "EEE1101", name: "Electricity and Magnetism", cu: 3 },
+                    { code: "EEE1105", name: "Physical Electronics", cu: 3 },
+                    { code: "EEE1106", name: "Engineering Mathematics I", cu: 4 },
+                    { code: "EEE1111", name: "Engineering Materials", cu: 3 }
+                ]
+            },
+            Y1S2: {
+                label: "Year 1 · Semester 2",
+                courses: [
+                    { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
+                    { code: "EEE1203", name: "Engineering Drawing", cu: 3 },
+                    { code: "EEE1206", name: "Engineering Mathematics II", cu: 4 },
+                    { code: "EEE1207", name: "Circuit Theory", cu: 3 },
+                    { code: "EEE1209", name: "Digital Electronics", cu: 3 },
+                    { code: "EEE1213", name: "Sensor Technology", cu: 3 },
+                    { code: "EEE1215", name: "Fundamentals of Computer Programming", cu: 3 }
+                ]
+            },
+            Y2S1: {
+                label: "Year 2 · Semester 1",
+                courses: [
+                    { code: "BCE2102", name: "Digital Systems", cu: 3 },
+                    { code: "BCE2113", name: "Object Oriented Programming-Java", cu: 4 },
+                    { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
+                    { code: "EEE2103", name: "Engineering Mathematics III", cu: 4 },
+                    { code: "EEE2104", name: "Electrical Machine Design", cu: 3 },
+                    { code: "EEE2106", name: "Engineering Ethics", cu: 3 },
+                    { code: "EEE2114", name: "Simulation and Testing Engineering", cu: 3 }
+                ]
+            },
+            Y2S2: {
+                label: "Year 2 · Semester 2",
+                courses: [
+                    { code: "BCE2215", name: "Engineering Mathematics IV", cu: 4 },
+                    { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
+                    { code: "EEE2211", name: "Power Systems Analysis", cu: 3 },
+                    { code: "EEE2212", name: "Electric Machine Modeling", cu: 3 },
+                    { code: "EEE2213", name: "Basic PLC Programming", cu: 4 },
+                    { code: "EEE2214", name: "Electromagnetic Fields", cu: 3 },
+                    { code: "EEE2216", name: "Research Methods", cu: 3 }
+                ]
+            },
+            Y3S1: {
+                label: "Year 3 · Semester 1",
+                courses: [
+                    { code: "EEE3112", name: "Analog Electronics", cu: 4 },
+                    { code: "EEE3115", name: "Renewable Energy Engineering", cu: 3 },
+                    { code: "BCE3110", name: "Communication Systems Engineering", cu: 3 },
+                    { code: "BCE3123", name: "Internet of Things (IoT)", cu: 3 },
+                    { code: "EEE3111", name: "Semiconductor Devices and Applications", cu: 3 },
+                    { code: "BCE3121", name: "VLSI Systems and Design", cu: 3 },
+                    { code: "BME3101", name: "Microprocessors", cu: 3 }
+                ]
+            },
+            Y3S2: {
+                label: "Year 3 · Semester 2",
+                courses: [
+                    { code: "BCE3215", name: "Digital Signal Processing", cu: 4 },
+                    { code: "EEE3211", name: "Radio Propagation and Antennas", cu: 4 },
+                    { code: "BCE3216", name: "Instrumentation and Measurements", cu: 4 },
+                    { code: "BCE3214", name: "Embedded Systems Programming and Design", cu: 4 },
+                    { code: "EEE3206", name: "Mini Engineering Project", cu: 3 },
+                    { code: "EEE3202", name: "Electronic Circuits", cu: 3 },
+                    { code: "EEE3208", name: "Power Electronics", cu: 3 }
+                ]
+            },
+            Y4S1: {
+                label: "Year 4 · Semester 1",
+                courses: [
+                    { code: "BCE4112", name: "Control Systems Engineering", cu: 4 },
+                    { code: "EEE4102", name: "Maintenance Engineering", cu: 3 },
+                    { code: "EEE4105", name: "Electrical Installation Design", cu: 3 },
+                    { code: "EEE4113", name: "Power Generation, Operation and Control", cu: 3 },
+                    { code: "BCE4107", name: "Optical Communication Systems", cu: 3 },
+                    { code: "EEE4104", name: "TV and Video Engineering", cu: 3 }
+                ]
+            },
+            Y4S2: {
+                label: "Year 4 · Semester 2",
+                courses: [
+                    { code: "BCE420", name: "Professional Law and Ethics for Engineers", cu: 3 },
+                    { code: "BCE4223", name: "Entrepreneurship and Business Management", cu: 3 },
+                    { code: "EEE4201", name: "Power Systems Protection and Coordination", cu: 3 },
+                    { code: "EEE4207", name: "Final Year Project", cu: 5 },
+                    { code: "BCE4222", name: "Robotics Engineering", cu: 3 },
+                    { code: "EEE4206", name: "Radio Frequency Engineering", cu: 3 }
+                ]
+            }
+        }
     }
-  },
-  agriculture: {
-    key: "agriculture",
-    displayName: "Bachelor of Science in Agriculture and Livelihood",
-    shortName: "Agriculture and Livelihood",
-    semOrder: SEMESTER_ORDER_STANDARD,
-    curriculum: {
-      Y1S1: {
-        label: "Year 1 · Semester 1",
-        courses: [
-          { code: "DVS1106", name: "Fundamentals to Political Economy", cu: 3 },
-          { code: "BPCD1102", name: "Fundamentals of Interdisciplinary Studies", cu: 3 },
-          { code: "CSC1101", name: "Applied Computer Skills", cu: 3 },
-          { code: "BSAL1101", name: "Livelihoods Approaches for Agricultural Transformation", cu: 4 },
-          { code: "BSAL1102", name: "Agricultural Botany and Plant Physiology", cu: 4 },
-          { code: "BSAL1104", name: "Crop Production Systems", cu: 3 },
-          { code: "BSAL1105", name: "Livestock Production Systems", cu: 3 },
-          { code: "BSAL1106", name: "Fundamentals of Animal Anatomy and Physiology", cu: 3 },
-          { code: "BPCD1107", name: "Communication and Facilitation Skills", cu: 3 }
-        ]
-      },
-      Y1S2: {
-        label: "Year 1 · Semester 2",
-        courses: [
-          { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
-          { code: "BPCD1209", name: "Methodology, Conceptualization and Theoretical Analysis", cu: 3 },
-          { code: "BSAL1212", name: "Fundamentals of Food Science and Technology", cu: 3 },
-          { code: "BSAL1206", name: "Principles of Soil Science", cu: 4 },
-          { code: "BSAL1207", name: "Annual and Perennial Crop Agronomy", cu: 4 },
-          { code: "BSAL1208", name: "Apiculture and Aquaculture", cu: 3 },
-          { code: "BSAL1209", name: "Poultry and Pig Production", cu: 3 },
-          { code: "BSAL1210", name: "Agroforestry", cu: 4 },
-          { code: "BSAL1211", name: "Dairy and Beef Production", cu: 3 }
-        ]
-      },
-      Y2S1: {
-        label: "Year 2 · Semester 1",
-        courses: [
-          { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
-          { code: "BSAL2101", name: "Farm Planning, Systems and Structures", cu: 3 },
-          { code: "BSAL2102", name: "Pasture Production and Rangeland Management", cu: 4 },
-          { code: "BSAL2103", name: "Animal Health and Disease", cu: 3 },
-          { code: "BSAL2104", name: "Entomology and Nematology", cu: 3 },
-          { code: "BSAL2105", name: "Agricultural Production Economics", cu: 3 },
-          { code: "RMC2101", name: "Qualitative Research", cu: 3 },
-          { code: "BSAL2106", name: "Animal Nutrition and Feed Technology", cu: 4 }
-        ]
-      },
-      Y2S2: {
-        label: "Year 2 · Semester 2",
-        courses: [
-          { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
-          { code: "BSAL2208", name: "Food Systems and Security", cu: 3 },
-          { code: "BSAL2209", name: "Agriculture Extension and Rural Development", cu: 4 },
-          { code: "BSAL2210", name: "Soil Conservation Technologies", cu: 3 },
-          { code: "BSAL2214", name: "Agro Meteorology", cu: 4 },
-          { code: "BSAL2212", name: "Plant Nutrition and Soil Fertility Management", cu: 3 },
-          { code: "BPCD2212", name: "Remote Sensing and Geographical Information Systems", cu: 3 },
-          { code: "BSAL2213", name: "Plant Pathology", cu: 4 },
-          { code: "BSAL2215", name: "Microbiology", cu: 3 }
-        ]
-      },
-      Y3S1: {
-        label: "Year 3 · Semester 1",
-        courses: [
-          { code: "BSAL3103", name: "Small Ruminants", cu: 3 },
-          { code: "BSAL3104", name: "Agricultural Project Planning and Management", cu: 3 },
-          { code: "BSAL3106", name: "Farm Mechanisation", cu: 4 },
-          { code: "BSAL3110", name: "Food Processing and Preservation", cu: 4 },
-          { code: "BSAL3109", name: "Statistics for Agricultural Research", cu: 3 },
-          { code: "BSAL3108", name: "Land Tenure, Use and Planning", cu: 3 },
-          { code: "STP3101", name: "Students' Community Twinning Project", cu: 3 }
-        ]
-      },
-      Y3S2: {
-        label: "Year 3 · Semester 2",
-        courses: [
-          { code: "BSAL3105", name: "Farmer Institutional Structures and Development", cu: 3 },
-          { code: "BSAL3210", name: "Appraisal of Agricultural Development Projects", cu: 4 },
-          { code: "BSAL3211", name: "Irrigation and Farm Water Use Technologies", cu: 3 },
-          { code: "BSAL3212", name: "Post-Harvest Handling and Value Addition", cu: 3 },
-          { code: "BSAL3213", name: "Seed Technology", cu: 4 },
-          { code: "BSAL3214", name: "Climate Change and Farm Production", cu: 4 },
-          { code: "BSAL3215", name: "Agricultural Experimental Design", cu: 3 },
-          { code: "STP3202", name: "Students' Community Twinning Project", cu: 3 },
-          { code: "IPR3301", name: "Interdisciplinary Practicum (Internship)", cu: 5 }
-        ]
-      },
-      Y4S1: {
-        label: "Year 4 · Semester 1",
-        courses: [
-          { code: "BSAL4118", name: "Entrepreneurship, Farm Enterprise Development and Innovation Systems", cu: 3 },
-          { code: "BSAL4115", name: "Agricultural Marketing and Cooperatives", cu: 4 },
-          { code: "BSAL4113", name: "Animal Breeding", cu: 4 },
-          { code: "BSAL4114", name: "Agricultural Vulnerability and Resilience", cu: 4 },
-          { code: "BSAL4116", name: "Plant Breeding and Biotechnology", cu: 4 },
-          { code: "BSAL4117", name: "Milk and Meat Technology", cu: 3 },
-          { code: "BSAL4119", name: "Animal Parasitology", cu: 3 }
-        ]
-      },
-      Y4S2: {
-        label: "Year 4 · Semester 2",
-        courses: [
-          { code: "BSAL4207", name: "Commodity Value Chain Analysis", cu: 4 },
-          { code: "BSAL4208", name: "Gender and Agriculture Development", cu: 4 },
-          { code: "BSAL4209", name: "Poverty Analysis Tools and Techniques", cu: 4 },
-          { code: "BSAL4210", name: "Farm Business, Accounting and Finance", cu: 4 },
-          { code: "BSAL4213", name: "Agricultural Policy, Ethics and Law", cu: 4 },
-          { code: "BSAL4212", name: "Research Project (Final Dissertation)", cu: 5 }
-        ]
-      }
-    }
-  },
-  electricalEngineering: {
-    key: "electricalEngineering",
-    displayName: "Bachelor of Science in Electrical Engineering",
-    shortName: "Electrical Engineering",
-    semOrder: SEMESTER_ORDER_STANDARD,
-    curriculum: {
-      Y1S1: {
-        label: "Year 1 · Semester 1",
-        courses: [
-          { code: "BCE1104", name: "Information and Communications Technology", cu: 3 },
-          { code: "COM1101", name: "Communication Skills", cu: 3 },
-          { code: "DVS1106", name: "Introduction to Political Economy", cu: 3 },
-          { code: "EEE1101", name: "Electricity and Magnetism", cu: 3 },
-          { code: "EEE1105", name: "Physical Electronics", cu: 3 },
-          { code: "EEE1106", name: "Engineering Mathematics I", cu: 4 },
-          { code: "EEE1111", name: "Engineering Materials", cu: 3 }
-        ]
-      },
-      Y1S2: {
-        label: "Year 1 · Semester 2",
-        courses: [
-          { code: "DVS1203", name: "Political Economy of Africa and Development", cu: 3 },
-          { code: "EEE1203", name: "Engineering Drawing", cu: 3 },
-          { code: "EEE1206", name: "Engineering Mathematics II", cu: 4 },
-          { code: "EEE1207", name: "Circuit Theory", cu: 3 },
-          { code: "EEE1209", name: "Digital Electronics", cu: 3 },
-          { code: "EEE1213", name: "Sensor Technology", cu: 3 },
-          { code: "EEE1215", name: "Fundamentals of Computer Programming", cu: 3 }
-        ]
-      },
-      Y2S1: {
-        label: "Year 2 · Semester 1",
-        courses: [
-          { code: "BCE2102", name: "Digital Systems", cu: 3 },
-          { code: "BCE2113", name: "Object Oriented Programming-Java", cu: 4 },
-          { code: "DVS2105", name: "Political Economy of Uganda", cu: 3 },
-          { code: "EEE2103", name: "Engineering Mathematics III", cu: 4 },
-          { code: "EEE2104", name: "Electrical Machine Design", cu: 3 },
-          { code: "EEE2106", name: "Engineering Ethics", cu: 3 },
-          { code: "EEE2114", name: "Simulation and Testing Engineering", cu: 3 }
-        ]
-      },
-      Y2S2: {
-        label: "Year 2 · Semester 2",
-        courses: [
-          { code: "BCE2215", name: "Engineering Mathematics IV", cu: 4 },
-          { code: "DVS2201", name: "Citizenry, Professionalism, Globalization and Entrepreneurship", cu: 3 },
-          { code: "EEE2211", name: "Power Systems Analysis", cu: 3 },
-          { code: "EEE2212", name: "Electric Machine Modeling", cu: 3 },
-          { code: "EEE2213", name: "Basic PLC Programming", cu: 4 },
-          { code: "EEE2214", name: "Electromagnetic Fields", cu: 3 },
-          { code: "EEE2216", name: "Research Methods", cu: 3 }
-        ]
-      },
-      Y3S1: {
-        label: "Year 3 · Semester 1",
-        courses: [
-          { code: "EEE3112", name: "Analog Electronics", cu: 4 },
-          { code: "EEE3115", name: "Renewable Energy Engineering", cu: 3 },
-          { code: "BCE3110", name: "Communication Systems Engineering", cu: 3 },
-          { code: "BCE3123", name: "Internet of Things (IoT)", cu: 3 },
-          { code: "EEE3111", name: "Semiconductor Devices and Applications", cu: 3 },
-          { code: "BCE3121", name: "VLSI Systems and Design", cu: 3 },
-          { code: "BME3101", name: "Microprocessors", cu: 3 }
-        ]
-      },
-      Y3S2: {
-        label: "Year 3 · Semester 2",
-        courses: [
-          { code: "BCE3215", name: "Digital Signal Processing", cu: 4 },
-          { code: "EEE3211", name: "Radio Propagation and Antennas", cu: 4 },
-          { code: "BCE3216", name: "Instrumentation and Measurements", cu: 4 },
-          { code: "BCE3214", name: "Embedded Systems Programming and Design", cu: 4 },
-          { code: "EEE3206", name: "Mini Engineering Project", cu: 3 },
-          { code: "EEE3202", name: "Electronic Circuits", cu: 3 },
-          { code: "EEE3208", name: "Power Electronics", cu: 3 }
-        ]
-      },
-      Y4S1: {
-        label: "Year 4 · Semester 1",
-        courses: [
-          { code: "BCE4112", name: "Control Systems Engineering", cu: 4 },
-          { code: "EEE4102", name: "Maintenance Engineering", cu: 3 },
-          { code: "EEE4105", name: "Electrical Installation Design", cu: 3 },
-          { code: "EEE4113", name: "Power Generation, Operation and Control", cu: 3 },
-          { code: "BCE4107", name: "Optical Communication Systems", cu: 3 },
-          { code: "EEE4104", name: "TV and Video Engineering", cu: 3 }
-        ]
-      },
-      Y4S2: {
-        label: "Year 4 · Semester 2",
-        courses: [
-          { code: "BCE420", name: "Professional Law and Ethics for Engineers", cu: 3 },
-          { code: "BCE4223", name: "Entrepreneurship and Business Management", cu: 3 },
-          { code: "EEE4201", name: "Power Systems Protection and Coordination", cu: 3 },
-          { code: "EEE4207", name: "Final Year Project", cu: 5 },
-          { code: "BCE4222", name: "Robotics Engineering", cu: 3 },
-          { code: "EEE4206", name: "Radio Frequency Engineering", cu: 3 }
-        ]
-      }
-    }
-  }
 };
 
 const DEFAULT_PROGRAM = "softwareEngineering";
@@ -355,6 +355,12 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             recoveryHash: "bsse_recovery_hash"
         };
 
+        const RESOURCE_DB = {
+          name: "grade_tracker_resources",
+          version: 1,
+          store: "files"
+        };
+
         const TIMETABLE_DATES = {
             Y1S1: "2026-01-12",
             Y1S2: "2026-01-12",
@@ -367,18 +373,18 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
         };
 
         const TIMETABLE_IMAGES = {
-          softwareEngineering: {
-            Y1S1: "timetables/y1s1.jpg",
-            Y1S2: "timetables/timetable_year1_sem2.png",
-            Y2S1: "timetables/y2s1.jpg",
-            Y2S2: "timetables/timetable_year2_sem2.png",
-            Y3S1: "timetables/y3s1.jpg",
-            Y3S2: "timetables/timetable_year3_sem2.png",
-            Y4S1: "timetables/y4s1.jpg",
-            Y4S2: "timetables/timetable_year4_sem2.png"
-          },
-          agriculture: {},
-          electricalEngineering: {}
+            softwareEngineering: {
+                Y1S1: "timetables/y1s1.jpg",
+                Y1S2: "timetables/timetable_year1_sem2.png",
+                Y2S1: "timetables/y2s1.jpg",
+                Y2S2: "timetables/timetable_year2_sem2.png",
+                Y3S1: "timetables/y3s1.jpg",
+                Y3S2: "timetables/timetable_year3_sem2.png",
+                Y4S1: "timetables/y4s1.jpg",
+                Y4S2: "timetables/timetable_year4_sem2.png"
+            },
+            agriculture: {},
+            electricalEngineering: {}
         };
 
         const ADJECTIVES = [
@@ -426,40 +432,44 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             failedPinAttempts: 0,
             pinBuffer: "",
             forecastTarget: "",
-          forecastLeftCUOverride: "",
-          forecastSemToAdd: "",
+            forecastLeftCUOverride: "",
+            forecastSemToAdd: "",
             insightTarget: "",
-          insightLeftCUOverride: ""
+          insightLeftCUOverride: "",
+          resourcesQuery: "",
+          resourcesSemFilter: "all",
+          resourcesTypeFilter: "all",
+          resourcesYearFilter: "all"
         };
 
-          function resolveProgramKey(programKey) {
+        function resolveProgramKey(programKey) {
             return PROGRAMS[programKey] ? programKey : DEFAULT_PROGRAM;
-          }
+        }
 
-          function getActiveProgram() {
+        function getActiveProgram() {
             return PROGRAMS[resolveProgramKey(state && state.program)];
-          }
+        }
 
-          function syncProgramContext(programKey) {
+        function syncProgramContext(programKey) {
             const resolved = resolveProgramKey(programKey);
             CURRICULUM = PROGRAMS[resolved].curriculum;
             SEM_ORDER = PROGRAMS[resolved].semOrder;
             if (state) {
-              state.program = resolved;
+                state.program = resolved;
             }
             applyProgramBranding();
-          }
+        }
 
         // ╔══════════════════════════════════════════╗
         // ║  STATE                                   ║
         // ╚══════════════════════════════════════════╝
         function buildEmptyGrades(programKey = DEFAULT_PROGRAM) {
-          const resolved = resolveProgramKey(programKey);
-          const program = PROGRAMS[resolved];
+            const resolved = resolveProgramKey(programKey);
+            const program = PROGRAMS[resolved];
             const grades = {};
-          program.semOrder.forEach((semKey) => {
+            program.semOrder.forEach((semKey) => {
                 grades[semKey] = {};
-            program.curriculum[semKey].courses.forEach((course) => {
+                program.curriculum[semKey].courses.forEach((course) => {
                     grades[semKey][course.code] = "";
                 });
             });
@@ -467,18 +477,19 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
         }
 
         function defaultState(programKey = DEFAULT_PROGRAM) {
-          const resolved = resolveProgramKey(programKey);
+            const resolved = resolveProgramKey(programKey);
             const userId = getOrCreateUserId();
             return {
-            program: resolved,
+                program: resolved,
                 name: "",
-            currentSem: PROGRAMS[resolved].semOrder[0],
+                currentSem: PROGRAMS[resolved].semOrder[0],
                 pin: null,
                 userId,
                 recoveryHash: null,
                 recoveryPhrase: "",
-            grades: buildEmptyGrades(resolved),
-                forecast: []
+                grades: buildEmptyGrades(resolved),
+                forecast: [],
+                resources: []
             };
         }
 
@@ -486,27 +497,31 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             try {
                 const raw = localStorage.getItem(STORAGE_KEYS.state);
                 if (!raw) {
-              state = defaultState();
-              syncProgramContext(state.program);
+                    state = defaultState();
+                    syncProgramContext(state.program);
                     return;
                 }
                 const parsed = JSON.parse(raw);
-            const programKey = resolveProgramKey(parsed.program);
-            const safe = defaultState(programKey);
-            syncProgramContext(programKey);
+                const programKey = resolveProgramKey(parsed.program);
+                const safe = defaultState(programKey);
+                syncProgramContext(programKey);
 
                 state = {
                     ...safe,
                     ...parsed,
-              program: programKey,
+                    program: programKey,
                     grades: {
                         ...safe.grades,
                         ...(parsed.grades || {})
                     },
-              forecast: Array.isArray(parsed.forecast) ? parsed.forecast : []
+                    forecast: Array.isArray(parsed.forecast) ? parsed.forecast : []
                 };
 
-            state.currentSem = SEM_ORDER.includes(state.currentSem) ? state.currentSem : SEM_ORDER[0];
+                  state.resources = Array.isArray(parsed.resources)
+                    ? parsed.resources.filter((item) => item && item.id && item.fileName)
+                    : [];
+
+                state.currentSem = SEM_ORDER.includes(state.currentSem) ? state.currentSem : SEM_ORDER[0];
                 RUNTIME.timetableSem = state.currentSem;
 
                 // Normalize grades to allowed values only.
@@ -517,22 +532,22 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
                     });
                 });
 
-            state.forecast = state.forecast
-              .filter((row) => {
-                if (!row || !SEM_ORDER.includes(row.semKey)) {
-                  return false;
-                }
-                if (!GRADE_MAP.hasOwnProperty(row.grade)) {
-                  return false;
-                }
-                return CURRICULUM[row.semKey].courses.some((course) => course.code === row.courseCode);
-              })
-              .map((row) => ({
-                id: row.id || `forecast_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-                semKey: row.semKey,
-                courseCode: row.courseCode,
-                grade: row.grade
-              }));
+                state.forecast = state.forecast
+                    .filter((row) => {
+                        if (!row || !SEM_ORDER.includes(row.semKey)) {
+                            return false;
+                        }
+                        if (!GRADE_MAP.hasOwnProperty(row.grade)) {
+                            return false;
+                        }
+                        return CURRICULUM[row.semKey].courses.some((course) => course.code === row.courseCode);
+                    })
+                    .map((row) => ({
+                        id: row.id || `forecast_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+                        semKey: row.semKey,
+                        courseCode: row.courseCode,
+                        grade: row.grade
+                    }));
 
                 if (!state.userId) {
                     state.userId = getOrCreateUserId();
@@ -662,28 +677,28 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             return Infinity;
         }
 
-          function totalProgramCU() {
+        function totalProgramCU() {
             return SEM_ORDER.reduce((sum, semKey) => sum + semesterUnits(semKey), 0);
-          }
+        }
 
-          function autoRemainingCU() {
+        function autoRemainingCU() {
             return Math.max(0, totalProgramCU() - completedCU());
-          }
+        }
 
-          function effectiveRemainingCU(overrideValue) {
+        function effectiveRemainingCU(overrideValue) {
             const parsed = Number(overrideValue);
             if (Number.isFinite(parsed) && parsed > 0) {
-              return parsed;
+                return parsed;
             }
             return autoRemainingCU();
-          }
+        }
 
-          function semesterDisplayKey(semKey) {
+        function semesterDisplayKey(semKey) {
             if (!semKey || !CURRICULUM[semKey]) {
-              return "N/A";
+                return "N/A";
             }
             return semKey;
-          }
+        }
 
         function draggingCourses() {
             const rows = [];
@@ -752,6 +767,7 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             renderDashboard();
             renderSemesterTable();
             renderForecast();
+          renderResources();
             renderInsights();
             renderTimetable();
             syncActiveNav();
@@ -766,7 +782,7 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
                 return;
             }
 
-          applyProgramBranding();
+            applyProgramBranding();
 
             const h = new Date().getHours();
             let prefix = "Good morning";
@@ -958,7 +974,7 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
             const delta = projected - current;
             const futureSems = futureSemesters();
             if (!futureSems.includes(RUNTIME.forecastSemToAdd)) {
-              RUNTIME.forecastSemToAdd = futureSems[0] || "";
+                RUNTIME.forecastSemToAdd = futureSems[0] || "";
             }
             const autoLeft = autoRemainingCU();
             const forecastLeft = effectiveRemainingCU(RUNTIME.forecastLeftCUOverride);
@@ -1235,6 +1251,144 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
     }
   }
 
+  function filteredResources() {
+    const query = String(RUNTIME.resourcesQuery || "").trim().toLowerCase();
+    return [...state.resources]
+      .filter((item) => {
+        if (RUNTIME.resourcesSemFilter !== "all" && item.semKey !== RUNTIME.resourcesSemFilter) {
+          return false;
+        }
+        if (RUNTIME.resourcesTypeFilter !== "all" && item.type !== RUNTIME.resourcesTypeFilter) {
+          return false;
+        }
+        if (RUNTIME.resourcesYearFilter !== "all" && String(item.year) !== String(RUNTIME.resourcesYearFilter)) {
+          return false;
+        }
+        if (!query) {
+          return true;
+        }
+        const searchable = `${item.title} ${item.courseCode} ${item.fileName} ${item.type}`.toLowerCase();
+        return searchable.includes(query);
+      })
+      .sort((a, b) => Number(b.createdAt || 0) - Number(a.createdAt || 0));
+  }
+
+  function renderResources() {
+    if (RUNTIME.page !== "resources") {
+      return;
+    }
+    const page = document.getElementById("page-content");
+    if (!page) {
+      return;
+    }
+
+    const currentYear = new Date().getFullYear();
+    const typeOptions = ["Final", "Midterm", "CAT", "Quiz", "Assignment", "Other"];
+    const allCourseOptions = SEM_ORDER
+      .flatMap((semKey) => CURRICULUM[semKey].courses.map((course) => ({ semKey, course })))
+      .map(({ course }) => `<option value="${course.code}">${course.code} - ${course.name}</option>`)
+      .join("");
+
+    const yearValues = [...new Set(state.resources.map((item) => String(item.year)).filter(Boolean))].sort((a, b) => Number(b) - Number(a));
+    const rows = filteredResources();
+
+    page.innerHTML = `
+      <div class="stack">
+        <section class="card">
+          <h3 class="section-title">Resources Upload</h3>
+          <p>Add past papers and revision files for your current program. Files are stored on this device only.</p>
+          <div class="field-grid mt-10">
+            <div>
+              <label>Semester</label>
+              <select id="resource-sem">
+                ${SEM_ORDER.map((sem) => `<option value="${sem}" ${sem === state.currentSem ? "selected" : ""}>${sem}</option>`).join("")}
+              </select>
+            </div>
+            <div>
+              <label>Course</label>
+              <select id="resource-course">
+                ${allCourseOptions}
+              </select>
+            </div>
+            <div>
+              <label>Type</label>
+              <select id="resource-type">
+                ${typeOptions.map((type) => `<option value="${type}">${type}</option>`).join("")}
+              </select>
+            </div>
+            <div>
+              <label>Year</label>
+              <input id="resource-year" type="number" min="2000" max="2100" step="1" value="${currentYear}">
+            </div>
+          </div>
+          <div class="stack mt-10">
+            <div>
+              <label>Title (optional)</label>
+              <input id="resource-title" maxlength="80" placeholder="Example: SWE2104 Final Exam">
+            </div>
+            <div>
+              <label>Choose files</label>
+              <input id="resource-files" type="file" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png">
+            </div>
+            <div>
+              <button class="btn btn-primary btn-sm" data-action="resource-upload">Upload files</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3 class="section-title">Past Papers Library</h3>
+          <div class="field-grid mt-10">
+            <div>
+              <label>Search</label>
+              <input id="resources-query" value="${escapeHtml(RUNTIME.resourcesQuery)}" placeholder="Search by course code, title or file name">
+            </div>
+            <div>
+              <label>Semester</label>
+              <select id="resources-sem-filter">
+                <option value="all">All semesters</option>
+                ${SEM_ORDER.map((sem) => `<option value="${sem}" ${RUNTIME.resourcesSemFilter === sem ? "selected" : ""}>${sem}</option>`).join("")}
+              </select>
+            </div>
+            <div>
+              <label>Type</label>
+              <select id="resources-type-filter">
+                <option value="all">All types</option>
+                ${typeOptions.map((type) => `<option value="${type}" ${RUNTIME.resourcesTypeFilter === type ? "selected" : ""}>${type}</option>`).join("")}
+              </select>
+            </div>
+            <div>
+              <label>Year</label>
+              <select id="resources-year-filter">
+                <option value="all">All years</option>
+                ${yearValues.map((year) => `<option value="${year}" ${RUNTIME.resourcesYearFilter === year ? "selected" : ""}>${year}</option>`).join("")}
+              </select>
+            </div>
+          </div>
+
+          <div class="stack mt-10">
+            ${rows.length ? rows.map((item) => `
+              <article class="card resource-item">
+                <div class="resource-item-head">
+                  <div>
+                    <h4 class="text-primary">${escapeHtml(item.title || item.fileName)}</h4>
+                    <p>${item.courseCode} · ${item.semKey} · ${item.type} · ${item.year}</p>
+                    <small>${escapeHtml(item.fileName)} · ${Math.max(1, Math.round((item.fileSize || 0) / 1024))} KB</small>
+                  </div>
+                  <div class="pill-row">
+                    <button class="btn btn-secondary btn-sm" data-action="resource-open" data-id="${item.id}">Open</button>
+                    <button class="btn btn-secondary btn-sm" data-action="resource-download" data-id="${item.id}">Download</button>
+                    <button class="btn btn-secondary btn-sm" data-action="resource-delete" data-id="${item.id}">Delete</button>
+                  </div>
+                </div>
+              </article>
+            `).join("") : `<p>No resources found for the current filters.</p>`}
+          </div>
+        </section>
+      </div>
+    `;
+  }
+
   function renderSettings() {
     if (RUNTIME.page !== "settings") {
       return;
@@ -1324,6 +1478,22 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
   function bindNav() {
     const sidebar = document.getElementById("sidebar-nav");
     const mobile = document.getElementById("mobile-tabs");
+    const mobileMorePanel = document.getElementById("mobile-more-panel");
+
+    const lowFrequencyPages = ["resources", "insights", "settings"];
+
+    function hideMobileMorePanel() {
+      if (mobileMorePanel) {
+        mobileMorePanel.classList.add("hidden");
+      }
+    }
+
+    function toggleMobileMorePanel() {
+      if (!mobileMorePanel) {
+        return;
+      }
+      mobileMorePanel.classList.toggle("hidden");
+    }
 
     if (sidebar) {
       sidebar.addEventListener("click", (event) => {
@@ -1332,6 +1502,7 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
           return;
         }
         RUNTIME.page = btn.dataset.page;
+        hideMobileMorePanel();
         routeRender();
       });
     }
@@ -1342,10 +1513,46 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
         if (!btn) {
           return;
         }
+        if (btn.dataset.page === "more") {
+          toggleMobileMorePanel();
+          syncActiveNav();
+          return;
+        }
         RUNTIME.page = btn.dataset.page;
+        hideMobileMorePanel();
         routeRender();
       });
     }
+
+    if (mobileMorePanel) {
+      mobileMorePanel.addEventListener("click", (event) => {
+        const btn = event.target.closest("button[data-page]");
+        if (!btn) {
+          return;
+        }
+        if (!lowFrequencyPages.includes(btn.dataset.page)) {
+          return;
+        }
+        RUNTIME.page = btn.dataset.page;
+        hideMobileMorePanel();
+        routeRender();
+      });
+    }
+
+    document.addEventListener("click", (event) => {
+      if (!mobileMorePanel || mobileMorePanel.classList.contains("hidden")) {
+        return;
+      }
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+      if (target.closest("#mobile-more-panel") || target.closest("#mobile-tabs")) {
+        return;
+      }
+      hideMobileMorePanel();
+      syncActiveNav();
+    });
   }
 
   function bindGradeInputs() {
@@ -1430,6 +1637,33 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
 
       if (target.matches("#import-json-file")) {
         importFromInput(target);
+      }
+
+      if (target.matches("#resources-sem-filter")) {
+        RUNTIME.resourcesSemFilter = target.value;
+        renderResources();
+      }
+
+      if (target.matches("#resources-type-filter")) {
+        RUNTIME.resourcesTypeFilter = target.value;
+        renderResources();
+      }
+
+      if (target.matches("#resources-year-filter")) {
+        RUNTIME.resourcesYearFilter = target.value;
+        renderResources();
+      }
+    });
+
+    page.addEventListener("input", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      if (target.matches("#resources-query")) {
+        RUNTIME.resourcesQuery = target.value;
+        renderResources();
       }
     });
   }
@@ -1670,6 +1904,7 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
           localStorage.removeItem(STORAGE_KEYS.state);
           localStorage.removeItem(STORAGE_KEYS.pinHash);
           localStorage.removeItem(STORAGE_KEYS.recoveryHash);
+          await clearResourceBlobs();
           window.location.reload();
         } catch (_err) {
           showToast("Could not reset data.", "error");
@@ -1700,6 +1935,116 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
       if (action === "timetable-sem") {
         RUNTIME.timetableSem = btn.dataset.sem || state.currentSem;
         renderTimetable();
+      }
+
+      if (action === "resource-upload") {
+        const semInput = document.getElementById("resource-sem");
+        const courseInput = document.getElementById("resource-course");
+        const typeInput = document.getElementById("resource-type");
+        const yearInput = document.getElementById("resource-year");
+        const titleInput = document.getElementById("resource-title");
+        const filesInput = document.getElementById("resource-files");
+
+        if (!semInput || !courseInput || !typeInput || !yearInput || !titleInput || !filesInput) {
+          return;
+        }
+
+        const files = filesInput.files ? Array.from(filesInput.files) : [];
+        if (!files.length) {
+          showToast("Select at least one file to upload.", "error");
+          return;
+        }
+
+        const semKey = semInput.value;
+        const courseCode = courseInput.value;
+        const type = typeInput.value;
+        const year = Number(yearInput.value);
+        const customTitle = titleInput.value.trim();
+
+        if (!SEM_ORDER.includes(semKey)) {
+          showToast("Choose a valid semester.", "error");
+          return;
+        }
+        if (!Number.isFinite(year) || year < 2000 || year > 2100) {
+          showToast("Year must be between 2000 and 2100.", "error");
+          return;
+        }
+
+        try {
+          const uploaded = [];
+          for (const file of files) {
+            const id = `res_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+            await saveResourceBlob(id, file);
+            uploaded.push({
+              id,
+              semKey,
+              courseCode,
+              type,
+              year,
+              title: customTitle || file.name,
+              fileName: file.name,
+              fileType: file.type || "application/octet-stream",
+              fileSize: file.size || 0,
+              createdAt: Date.now()
+            });
+          }
+          state.resources.push(...uploaded);
+          saveState();
+          filesInput.value = "";
+          titleInput.value = "";
+          showToast(`Uploaded ${uploaded.length} resource file(s).`, "success");
+          renderResources();
+        } catch (_err) {
+          showToast("Upload failed. Check your browser storage quota.", "error");
+        }
+      }
+
+      if (action === "resource-open" || action === "resource-download") {
+        const id = btn.dataset.id;
+        const meta = state.resources.find((item) => item.id === id);
+        if (!id || !meta) {
+          showToast("Resource not found.", "error");
+          return;
+        }
+        try {
+          const blob = await getResourceBlob(id);
+          if (!blob) {
+            showToast("File data is missing for this resource.", "error");
+            return;
+          }
+          const url = URL.createObjectURL(blob);
+          if (action === "resource-open") {
+            window.open(url, "_blank", "noopener");
+          } else {
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = meta.fileName || "resource-file";
+            link.click();
+          }
+          window.setTimeout(() => URL.revokeObjectURL(url), 1500);
+        } catch (_err) {
+          showToast("Could not open resource file.", "error");
+        }
+      }
+
+      if (action === "resource-delete") {
+        const id = btn.dataset.id;
+        if (!id) {
+          return;
+        }
+        const approved = await confirmDialog("Delete this resource file from your device?");
+        if (!approved) {
+          return;
+        }
+        try {
+          await deleteResourceBlob(id);
+          state.resources = state.resources.filter((item) => item.id !== id);
+          saveState();
+          showToast("Resource deleted.", "success");
+          renderResources();
+        } catch (_err) {
+          showToast("Could not delete resource.", "error");
+        }
       }
     });
   }
@@ -1864,6 +2209,84 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
     const encoded = new TextEncoder().encode(pin);
     const buffer = await crypto.subtle.digest("SHA-256", encoded);
     return Array.from(new Uint8Array(buffer)).map((b) => b.toString(16).padStart(2, "0")).join("");
+  }
+
+  function openResourceDB() {
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open(RESOURCE_DB.name, RESOURCE_DB.version);
+      request.onupgradeneeded = () => {
+        const db = request.result;
+        if (!db.objectStoreNames.contains(RESOURCE_DB.store)) {
+          db.createObjectStore(RESOURCE_DB.store);
+        }
+      };
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error || new Error("Could not open resources database."));
+    });
+  }
+
+  async function saveResourceBlob(id, file) {
+    const db = await openResourceDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(RESOURCE_DB.store, "readwrite");
+      tx.objectStore(RESOURCE_DB.store).put(file, id);
+      tx.oncomplete = () => {
+        db.close();
+        resolve();
+      };
+      tx.onerror = () => {
+        db.close();
+        reject(tx.error || new Error("Could not save resource file."));
+      };
+    });
+  }
+
+  async function getResourceBlob(id) {
+    const db = await openResourceDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(RESOURCE_DB.store, "readonly");
+      const request = tx.objectStore(RESOURCE_DB.store).get(id);
+      request.onsuccess = () => {
+        db.close();
+        resolve(request.result || null);
+      };
+      request.onerror = () => {
+        db.close();
+        reject(request.error || new Error("Could not read resource file."));
+      };
+    });
+  }
+
+  async function deleteResourceBlob(id) {
+    const db = await openResourceDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(RESOURCE_DB.store, "readwrite");
+      tx.objectStore(RESOURCE_DB.store).delete(id);
+      tx.oncomplete = () => {
+        db.close();
+        resolve();
+      };
+      tx.onerror = () => {
+        db.close();
+        reject(tx.error || new Error("Could not delete resource file."));
+      };
+    });
+  }
+
+  async function clearResourceBlobs() {
+    const db = await openResourceDB();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(RESOURCE_DB.store, "readwrite");
+      tx.objectStore(RESOURCE_DB.store).clear();
+      tx.oncomplete = () => {
+        db.close();
+        resolve();
+      };
+      tx.onerror = () => {
+        db.close();
+        reject(tx.error || new Error("Could not clear resource files."));
+      };
+    });
   }
 
   function gradeOptions(selected, forecastOnly = false) {
@@ -2048,6 +2471,9 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
       if (RUNTIME.page === "forecast") {
         renderForecast();
       }
+      if (RUNTIME.page === "resources") {
+        renderResources();
+      }
       if (RUNTIME.page === "insights") {
         renderInsights();
       }
@@ -2063,10 +2489,18 @@ let SEM_ORDER = PROGRAMS[DEFAULT_PROGRAM].semOrder;
   }
 
   function syncActiveNav() {
+    const mobileMorePanel = document.getElementById("mobile-more-panel");
+    const moreOpen = mobileMorePanel && !mobileMorePanel.classList.contains("hidden");
+    const isLowFrequencyPage = ["resources", "insights", "settings"].includes(RUNTIME.page);
+
     document.querySelectorAll(".nav-item").forEach((item) => {
       item.classList.toggle("active", item.dataset.page === RUNTIME.page);
     });
     document.querySelectorAll(".mobile-tab").forEach((item) => {
+      if (item.dataset.page === "more") {
+        item.classList.toggle("active", moreOpen || isLowFrequencyPage);
+        return;
+      }
       item.classList.toggle("active", item.dataset.page === RUNTIME.page);
     });
   }
